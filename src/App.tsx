@@ -1,16 +1,14 @@
-import React from "react";
 import { Route, Routes } from "react-router-dom";
 
-import OverviewPage from "./pages/Overview";
-import LabPlansPage from "./pages/LabPlans";
-import OpsBatteryPage from "./pages/OpsBatteryPage";
-import OpsCustomerPage from "./pages/OpsCustomerPage";
-import SpecsPage from "./pages/Specs";
-import StoragePage from "./pages/Storage";
 import MainNavigation from "./components/layout/MainNavigation";
 import LabBacklogPage from "./pages/LabBacklogPage";
-import LabMaintPage from "./pages/LabStationsPage";
+import LabPlansPage from "./pages/LabPlans";
 import LabStationsPage from "./pages/LabStationsPage";
+import OpsBatteryPage from "./pages/OpsBatteryPage";
+import OpsCustomerPage from "./pages/OpsCustomerPage";
+import OverviewPage from "./pages/Overview";
+import SpecsPage from "./pages/Specs";
+import StoragePage from "./pages/Storage";
 
 function App() {
   return (

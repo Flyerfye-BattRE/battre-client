@@ -7,13 +7,14 @@ export default function CustomerList(props) {
         {props.customerList.map((cust) => (
           <CustomerItem
             key={cust.id}
-            customerId={cust.customerId || 'DEF_customerId'}
-            lastName={cust.lastName || 'DEF_lastName'}
-            firstName={cust.firstName || 'DEF_firstName'}
-            email={cust.email || 'DEF_email'}
-            phone={cust.phone || 'DEF_phone'}
-            address={cust.address || 'DEF_address'}
-            loyaltyId={cust.loyaltyId || 'DEF_loyaltyId'}
+            customerId={cust.customerId || ""}
+            lastName={cust.lastName || ""}
+            firstName={cust.firstName || ""}
+            email={cust.email || ""}
+            phone={cust.phone || ""}
+            address={cust.address || ""}
+            loyaltyId={cust.loyaltyId || ""}
+            updateFn={props.updateFn}
           />
         ))}
       </ul>

@@ -8,10 +8,10 @@ export default function OpsSubNavigation() {
       <nav>
         <ul>
           <li>
-            <Link to='/ops'>Batteries</Link>
+            <Link to="/ops">Batteries</Link>
           </li>
           <li>
-            <Link to='/opsCust'>Customers</Link>
+            <Link to="/opsCust">Customers</Link>
           </li>
         </ul>
       </nav>

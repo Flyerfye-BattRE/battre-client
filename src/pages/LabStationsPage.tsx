@@ -1,8 +1,7 @@
-import { useState, useEffect } from "react";
-import LabPlanList from "../components/layout/labPage/LabPlanList";
+import { useEffect, useState } from "react";
 import LabSubNavigation from "../components/layout/labPage/LabSubNavigation";
-import TesterStnList from "../components/layout/labPage/TesterStnList";
 import RefurbStnList from "../components/layout/labPage/RefurbStnList";
+import TesterStnList from "../components/layout/labPage/TesterStnList";
 
 interface TesterStation {
   id: string;
@@ -49,10 +48,12 @@ export default function LabStationsPage() {
       })
       .then((data) => {
         if (data && Array.isArray(data.testerStationList)) {
-          const testerStns: TesterStation[] = data.testerStationList.map((testerStn, index) => ({
-            id: String(index),
-            ...testerStn,
-          }));
+          const testerStns: TesterStation[] = data.testerStationList.map(
+            (testerStn, index) => ({
+              id: String(index),
+              ...testerStn,
+            })
+          );
 
           setTesterStns(testerStns);
         } else {
@@ -66,38 +67,40 @@ export default function LabStationsPage() {
         setIsTesterStnsLoading(false);
       });
 
-      setIsRefurbStnsLoading(true);
-      fetch("http://localhost:8080/lab/getRefurbStnInfo", {
-        method: "GET",
-        headers: {
-          // 'Content-Type': 'application/json'
-        },
+    setIsRefurbStnsLoading(true);
+    fetch("http://localhost:8080/lab/getRefurbStnInfo", {
+      method: "GET",
+      headers: {
+        // 'Content-Type': 'application/json'
+      },
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+
+        return response.json();
       })
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error("Network response was not ok");
-          }
-  
-          return response.json();
-        })
-        .then((data) => {
-          if (data && Array.isArray(data.refurbStationList)) {
-            const refurbStns: RefurbStation[] = data.refurbStationList.map((refurbStn, index) => ({
+      .then((data) => {
+        if (data && Array.isArray(data.refurbStationList)) {
+          const refurbStns: RefurbStation[] = data.refurbStationList.map(
+            (refurbStn, index) => ({
               id: String(index),
               ...refurbStn,
-            }));
-  
-            setRefurbStns(refurbStns);
-          } else {
-            throw new Error("Data format is incorrect");
-          }
-  
-          setIsRefurbStnsLoading(false);
-        })
-        .catch((error) => {
-          console.error("Fetch error:", error);
-          setIsRefurbStnsLoading(false);
-        });
+            })
+          );
+
+          setRefurbStns(refurbStns);
+        } else {
+          throw new Error("Data format is incorrect");
+        }
+
+        setIsRefurbStnsLoading(false);
+      })
+      .catch((error) => {
+        console.error("Fetch error:", error);
+        setIsRefurbStnsLoading(false);
+      });
   }, []);
 
   if (isTesterStnsLoading || isRefurbStnsLoading) {

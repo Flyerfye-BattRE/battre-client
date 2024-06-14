@@ -7,9 +7,9 @@ export default function StorageStatsList(props) {
         {props.storageStats.map((stats) => (
           <StorageStatsItem
             key={stats.id}
-            batteryTierId={stats.batteryTierId || 'DEF_batteryTierId'}
-            availStorage={stats.availStorage || 'DEF_availStorage'}
-            capacity={stats.capacity || 'DEF_capacity'}
+            batteryTierId={stats.batteryTierId || ""}
+            availStorage={stats.availStorage || ""}
+            capacity={stats.capacity || ""}
           />
         ))}
       </ul>

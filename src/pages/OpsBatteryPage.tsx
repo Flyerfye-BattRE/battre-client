@@ -13,8 +13,13 @@ interface BatteryInv {
 }
 
 export default function OpsBatteryPage() {
+  const [update, setUpdate] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [batteryInv, setBatteryInv] = useState<BatteryInv[]>([]);
+
+  const triggerUpdate = () => {
+    setUpdate(!update);
+  };
 
   // Runs the code in this section only when the values in the 2nd argument array change--currently will only run once
   // https://youtu.be/Dorf8i6lCuk?t=11464
@@ -54,7 +59,7 @@ export default function OpsBatteryPage() {
         console.error("Fetch error:", error);
         setIsLoading(false);
       });
-  }, []);
+  }, [update]);
 
   if (isLoading) {
     return (
@@ -68,7 +73,7 @@ export default function OpsBatteryPage() {
     <section>
       <OpsSubNavigation />
       <h1>Ops Battery Page</h1>
-      <BatteryInvList batteryInv={batteryInv} />
+      <BatteryInvList batteryInv={batteryInv} updateFn={triggerUpdate} />
     </section>
   );
 }

@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import OpsSubNavigation from "../components/layout/opsPage/OpsSubNavigation";
 import CustomerList from "../components/layout/opsPage/CustomerList";
+import CustomerForm from "../components/layout/opsPage/CustomerForm";
+import { CustomerData } from "../types";
 
 interface CustomerInfo {
   id: string;
@@ -14,8 +16,61 @@ interface CustomerInfo {
 }
 
 export default function OpsCustomerPage() {
+  const [update, setUpdate] = useState<boolean>(true);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isAddCustomerDialogOpen, setIsAddCustomerDialogOpen] =
+    useState<boolean>(false);
   const [customerList, setCustomerList] = useState<CustomerInfo[]>([]);
+
+  const triggerUpdate = () => {
+    setUpdate(!update);
+  };
+
+  const handleNewCustomer = (customerData: CustomerData) => {
+    setIsAddCustomerDialogOpen(false);
+    addNewCustomerFn(customerData);
+  };
+
+  const handleCancel = () => {
+    setIsAddCustomerDialogOpen(false);
+    console.log("Cancelled customer add");
+  };
+
+  const addNewCustomerFn = (data: CustomerData) => {
+    console.log("Adding customer " + data.firstName + " " + data.lastName);
+    fetch("http://localhost:8080/ops/addCustomer", {
+      method: "POST",
+      headers: {
+        lastName: data.lastName,
+        firstName: data.firstName,
+        email: data.email,
+        phone: data.phone,
+        address: data.address,
+      },
+    })
+      .then((response) => {
+        if (response.ok) {
+          console.log(
+            "Finished adding customer " + data.firstName + " " + data.lastName
+          );
+          triggerUpdate();
+        } else {
+          console.log(
+            "Failed to add customer " + data.firstName + " " + data.lastName
+          );
+        }
+      })
+      .catch((error) => {
+        console.error(
+          "Error adding customer " +
+            data.firstName +
+            " " +
+            data.lastName +
+            ": ",
+          error
+        );
+      });
+  };
 
   // Runs the code in this section only when the values in the 2nd argument array change--currently will only run once
   // https://youtu.be/Dorf8i6lCuk?t=11464
@@ -55,7 +110,7 @@ export default function OpsCustomerPage() {
         console.error("Fetch error:", error);
         setIsLoading(false);
       });
-  }, []);
+  }, [update]);
 
   if (isLoading) {
     return (
@@ -69,7 +124,17 @@ export default function OpsCustomerPage() {
     <section>
       <OpsSubNavigation />
       <h1>Ops Customer Page</h1>
-      <CustomerList customerList={customerList} />
+      <button onClick={() => setIsAddCustomerDialogOpen(true)}>
+        Add Customer
+      </button>
+      <CustomerList customerList={customerList} updateFn={triggerUpdate} />
+      {isAddCustomerDialogOpen && (
+        <CustomerForm
+          newCustomer={true}
+          onSubmit={handleNewCustomer}
+          onCancel={handleCancel}
+        />
+      )}
     </section>
   );
 }

@@ -38,10 +38,12 @@ export default function SpecPage() {
       })
       .then((data) => {
         if (data && Array.isArray(data.batterySpecsList)) {
-          const batterySpecs: BatterySpecs[] = data.batterySpecsList.map((batterySpec, index) => ({
-            id: String(index),
-            ...batterySpec,
-          }));
+          const batterySpecs: BatterySpecs[] = data.batterySpecsList.map(
+            (batterySpec, index) => ({
+              id: String(index),
+              ...batterySpec,
+            })
+          );
 
           setBatterySpecs(batterySpecs);
         } else {

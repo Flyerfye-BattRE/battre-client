@@ -8,13 +8,13 @@ export default function RefurbStnList(props) {
         {props.refurbStns.map((stn) => (
           <RefurbStnItem
             key={stn.id}
-            refurbStnId={stn.refurbStnId || 'DEF_refurbStnId'}
-            refurbStationClass={stn.refurbStationClass || 'DEF_refurbStationClass'}
+            refurbStnId={stn.refurbStnId || ""}
+            refurbStationClass={stn.refurbStationClass || ""}
             inUse={stn.inUse}
-            optionalActiveBatteryId={stn.optionalActiveBatteryId || 'DEF_optionalActiveBatteryId'}
-            lastActiveDate={stn.lastActiveDate || 'DEF_lastActiveDate'}
-            lastCalibrationDate={stn.lastCalibrationDate || 'DEF_lastCalibrationDate'}
-            nextCalibrationDate={stn.nextCalibrationDate || 'DEF_nextCalibrationDate'}          
+            optionalActiveBatteryId={stn.optionalActiveBatteryId || ""}
+            lastActiveDate={stn.lastActiveDate || ""}
+            lastCalibrationDate={stn.lastCalibrationDate || ""}
+            nextCalibrationDate={stn.nextCalibrationDate || ""}
           />
         ))}
       </ul>

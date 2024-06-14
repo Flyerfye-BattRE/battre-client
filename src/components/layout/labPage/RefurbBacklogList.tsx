@@ -8,17 +8,11 @@ export default function RefurbBacklogList(props) {
         {props.refurbBacklog.map((entry) => (
           <RefurbBacklogItem
             key={entry.id}
-            refurbPlanId={entry.refurbPlanId || "DEF_refurbPlanId"}
-            batteryId={entry.batteryId || "DEF_batteryId"}
-            refurbPlanPriority={
-              entry.refurbPlanPriority || "DEF_refurbPlanPriority"
-            }
-            refurbPlanStartDate={
-              entry.refurbPlanStartDate || "DEF_refurbPlanStartDate"
-            }
-            refurbPlanEndDate={
-              entry.refurbPlanEndDate || "DEF_refurbPlanEndDate"
-            }
+            refurbPlanId={entry.refurbPlanId || ""}
+            batteryId={entry.batteryId || ""}
+            refurbPlanPriority={entry.refurbPlanPriority || ""}
+            refurbPlanStartDate={entry.refurbPlanStartDate || ""}
+            refurbPlanEndDate={entry.refurbPlanEndDate || ""}
             // available={entry.available}
             available={false}
             resolder={entry.resolder}

@@ -7,12 +7,13 @@ export default function BatteryInvList(props) {
         {props.batteryInv.map((batteryInv) => (
           <BatteryInvItem
             key={batteryInv.id}
-            batteryId={batteryInv.batteryId || 'DEF_batId'}
+            batteryId={batteryInv.batteryId || ""}
             batteryStatus={batteryInv.batteryStatus}
             batteryTypeId={batteryInv.batteryTypeId}
             intakeOrderId={batteryInv.intakeOrderId}
-            optional_holdId={batteryInv.optional_holdId || 'DEF_holdId'}
-            optional_outputOrderId={batteryInv.optional_outputOrderId || 'DEF_orderId'}
+            optional_holdId={batteryInv.optional_holdId || ""}
+            optional_outputOrderId={batteryInv.optional_outputOrderId || ""}
+            updateFn={props.updateFn}
           />
         ))}
       </ul>

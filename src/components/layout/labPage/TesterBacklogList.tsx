@@ -8,17 +8,11 @@ export default function TesterBacklogList(props) {
         {props.testerBacklog.map((entry) => (
           <TesterBacklogItem
             key={entry.id}
-            testerBacklogId={entry.testerBacklogId || "DEF_testerBacklogId"}
-            batteryId={entry.batteryId || "DEF_batteryId"}
-            testerBacklogPriority={
-              entry.testerBacklogPriority || "DEF_testerBacklogPriority"
-            }
-            testerBacklogStartDate={
-              entry.testerBacklogStartDate || "DEF_testerBacklogStartDate"
-            }
-            testerBacklogEndDate={
-              entry.testerBacklogEndDate || "DEF_testerBacklogEndDate"
-            }
+            testerBacklogId={entry.testerBacklogId || ""}
+            batteryId={entry.batteryId || ""}
+            testerBacklogPriority={entry.testerBacklogPriority || ""}
+            testerBacklogStartDate={entry.testerBacklogStartDate || ""}
+            testerBacklogEndDate={entry.testerBacklogEndDate || ""}
           />
         ))}
       </ul>

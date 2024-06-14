@@ -31,10 +31,12 @@ export default function StoragePage() {
       })
       .then((data) => {
         if (data && Array.isArray(data.tierStatsList)) {
-          const tierStats: StorageStats[] = data.tierStatsList.map((stat, index) => ({
-            id: String(index),
-            ...stat,
-          }));
+          const tierStats: StorageStats[] = data.tierStatsList.map(
+            (stat, index) => ({
+              id: String(index),
+              ...stat,
+            })
+          );
 
           setStorageStats(tierStats);
         } else {
