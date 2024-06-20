@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import LabSubNavigation from "../components/layout/labPage/LabSubNavigation";
 import RefurbStnList from "../components/layout/labPage/RefurbStnList";
 import TesterStnList from "../components/layout/labPage/TesterStnList";
+import Card from "../components/ui/Card";
 
 interface TesterStation {
   id: string;
@@ -113,10 +113,12 @@ export default function LabStationsPage() {
 
   return (
     <section>
-      <LabSubNavigation />
-      <h1>Lab Stations Page</h1>
+      <Card>
       <TesterStnList testerStns={testerStns} />
+      </Card>
+      <Card>
       <RefurbStnList refurbStns={refurbStns} />
+      </Card>
     </section>
   );
 }

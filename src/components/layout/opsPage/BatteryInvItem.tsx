@@ -1,3 +1,6 @@
+import DeleteButton from "../../ui/DeleteButton";
+import classes from "../TableItem.module.css";
+
 export default function BatteryInvItem(props) {
   const destroyBatteryFn = () => {
     console.log("Destroying battery [" + props.batteryId + "]");
@@ -26,23 +29,37 @@ export default function BatteryInvItem(props) {
   };
 
   return (
-    <li>
-      <div>
-        <h3>
-          Battery '{props.batteryId}' [Type {props.batteryTypeId}] Status:{" "}
-          {props.batteryStatus}
-        </h3>
-        <h4>&gt;&gt; Intake Order {props.intakeOrderId}</h4>
-        <h4>&gt;&gt; Output Order {props.optional_outputOrderId}</h4>
-        {props.optional_holdId && (
-          <h4>&gt;&gt; Hold {props.optional_holdId}</h4>
-        )}
-        <h3>
-          <button type="button" onClick={destroyBatteryFn}>
-            Destroy
-          </button>
-        </h3>
-      </div>
-    </li>
+    <tr>
+      <td>{props.batteryId}</td>
+      <td>{props.batteryTypeId}</td>
+      <td>{props.batteryStatus}</td>
+      <td>{props.intakeOrderId}</td>
+      <td>{props.optional_outputOOrderId}</td>
+      <td>{props.optional_holdId}</td>
+      <td>
+        <DeleteButton  onClick={destroyBatteryFn} />
+        {/* <button type="button" onClick={destroyBatteryFn}>
+          Destroy
+        </button> */}
+      </td>
+    </tr>
+    // <li>
+    //   <div>
+    //     <h3>
+    //       Battery '{props.batteryId}' [Type {props.batteryTypeId}] Status:{" "}
+    //       {props.batteryStatus}
+    //     </h3>
+    //     <h4>&gt;&gt; Intake Order {props.intakeOrderId}</h4>
+    //     <h4>&gt;&gt; Output Order {props.optional_outputOOrderId}</h4>
+    //     {props.optional_holdId && (
+    //       <h4>&gt;&gt; Hold {props.optional_holdId}</h4>
+    //     )}
+    //     <h3>
+    //       <button type="button" onClick={destroyBatteryFn}>
+    //         Destroy
+    //       </button>
+    //     </h3>
+    //   </div>
+    // </li>
   );
 }

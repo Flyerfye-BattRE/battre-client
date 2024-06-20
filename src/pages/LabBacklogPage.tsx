@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import LabSubNavigation from "../components/layout/labPage/LabSubNavigation";
 import RefurbBacklogList from "../components/layout/labPage/RefurbBacklogList";
 import TesterBacklogList from "../components/layout/labPage/TesterBacklogList";
+import Card from "../components/ui/Card";
 
 interface TesterBacklog {
   id: string;
@@ -118,10 +118,12 @@ export default function LabBacklogPage() {
 
   return (
     <section>
-      <LabSubNavigation />
-      <h1>Lab Backlog Page</h1>
-      <TesterBacklogList testerBacklog={testerBacklog} />
-      <RefurbBacklogList refurbBacklog={refurbBacklog} />
+      <Card>
+        <TesterBacklogList testerBacklog={testerBacklog} />
+      </Card>
+      <Card>
+        <RefurbBacklogList refurbBacklog={refurbBacklog} />
+      </Card>
     </section>
   );
 }

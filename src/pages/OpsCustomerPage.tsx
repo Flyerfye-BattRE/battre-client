@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import OpsSubNavigation from "../components/layout/opsPage/OpsSubNavigation";
 import CustomerList from "../components/layout/opsPage/CustomerList";
 import CustomerForm from "../components/layout/opsPage/CustomerForm";
 import { CustomerData } from "../types";
+import Card from "../components/ui/Card";
 
 interface CustomerInfo {
   id: string;
@@ -122,12 +122,12 @@ export default function OpsCustomerPage() {
 
   return (
     <section>
-      <OpsSubNavigation />
-      <h1>Ops Customer Page</h1>
       <button onClick={() => setIsAddCustomerDialogOpen(true)}>
         Add Customer
       </button>
-      <CustomerList customerList={customerList} updateFn={triggerUpdate} />
+      <Card>
+        <CustomerList customerList={customerList} updateFn={triggerUpdate} />
+      </Card>
       {isAddCustomerDialogOpen && (
         <CustomerForm
           newCustomer={true}

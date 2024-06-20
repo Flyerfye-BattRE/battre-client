@@ -1,0 +1,17 @@
+.summaryColumn {
+  width: auto; /* Auto width for the first column */
+  /* max-width: 200px; */
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+.annotatedRowCell {
+  width: 100px; /* Fixed width for the second and third columns */
+  white-space: nowrap; /* Prevent text wrapping */
+  text-decoration: underline dashed;
+  text-decoration-color: lightgray; /* Change the underline color to light gray */
+}
+
+.priorityColumn {
+  width: 100px; /* Fixed width for the second and third columns */
+  white-space: nowrap; /* Prevent text wrapping */
+}

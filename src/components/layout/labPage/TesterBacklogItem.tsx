@@ -1,5 +1,7 @@
 import { useState } from "react";
 import ChangePriorityDialog from "./ChangePriorityDialog";
+import classes from "../TableItem.module.css";
+import { formatDate } from "../../../utils/utils";
 
 export default function TesterBacklogItem(props) {
   const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
@@ -57,22 +59,34 @@ export default function TesterBacklogItem(props) {
       });
   };
 
+  const [fTesterBacklogLongStartDate, fTesterBacklogShortStartDate] =
+    formatDate(props.testerBacklogStartDate);
+  const [fTesterBacklogLongEndDate, fTesterBacklogShortEndDate] =
+    props.testerBacklogEndDate
+      ? formatDate(props.testerBacklogEndDate)
+      : [undefined, null];
+
   return (
-    <li>
-      <div>
-        <h3>
-          Entry {props.testerBacklogId} [PRI-{priority}]: Battery{" "}
-          {props.batteryId}
-        </h3>
-        <h4>
-          Status:{" "}
-          {(props.testerBacklogEndDate && "TESTING DONE") || "BACKLOG WAIT"}
-        </h4>
-        <h4>&gt;&gt; Start: {props.testerBacklogStartDate}</h4>
-        <h4>&gt;&gt; End: {props.testerBacklogEndDate}</h4>
-        {!props.testerBacklogEndDate && (
-          <button onClick={() => setIsDialogOpen(true)}>Set Priority</button>
-        )}
+    <tr>
+      <td>{props.testerBacklogId}</td>
+      <td>{props.batteryId}</td>
+      <td className={classes.summaryColumn}>
+        {(fTesterBacklogShortEndDate && "TESTED") || "QUEUED"}
+      </td>
+      <td
+        className={classes.annotatedRowCell}
+        title={fTesterBacklogLongStartDate}
+      >
+        {fTesterBacklogShortStartDate}
+      </td>
+      <td className={classes.annotatedRowCell} title={fTesterBacklogLongEndDate}>
+        {fTesterBacklogShortEndDate}
+      </td>
+      <td className={classes.priorityColumn}>
+        {(!fTesterBacklogShortEndDate && (
+          <button onClick={() => setIsDialogOpen(true)}>{priority}</button>
+        )) ||
+          "DONE"}
         {isDialogOpen && (
           <ChangePriorityDialog
             initialPriority={priority}
@@ -80,7 +94,7 @@ export default function TesterBacklogItem(props) {
             onCancel={handleCancel}
           />
         )}
-      </div>
-    </li>
+      </td>
+    </tr>
   );
 }

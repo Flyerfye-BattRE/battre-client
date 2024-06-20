@@ -1,21 +1,46 @@
 import TesterBacklogItem from "./TesterBacklogItem";
+import classes from "../TableList.module.css";
 
 export default function TesterBacklogList(props) {
   return (
-    <section>
-      <h2>Tester Backlog</h2>
-      <ul>
-        {props.testerBacklog.map((entry) => (
-          <TesterBacklogItem
-            key={entry.id}
-            testerBacklogId={entry.testerBacklogId || ""}
-            batteryId={entry.batteryId || ""}
-            testerBacklogPriority={entry.testerBacklogPriority || ""}
-            testerBacklogStartDate={entry.testerBacklogStartDate || ""}
-            testerBacklogEndDate={entry.testerBacklogEndDate || ""}
-          />
-        ))}
-      </ul>
+    <section className={classes.section}>
+      <h2 className={classes.tableTitle}>Tester Backlog</h2>
+      <table className={classes.dataTable}>
+        <thead>
+          <tr>
+            <td>
+              <b>#</b>
+            </td>
+            <td>
+              <b>Battery</b>
+            </td>
+            <td>
+              <b>Status</b>
+            </td>
+            <td>
+              <b>Start</b>
+            </td>
+            <td>
+              <b>End</b>
+            </td>
+            <td title="Lower priority #'s run before higher #'s" className={classes.annotatedHeaderColumn}>
+              <b>Priority</b>
+            </td>
+          </tr>
+        </thead>
+        <tbody>
+          {props.testerBacklog.map((entry) => (
+            <TesterBacklogItem
+              key={entry.id}
+              testerBacklogId={entry.testerBacklogId || ""}
+              batteryId={entry.batteryId || ""}
+              testerBacklogPriority={entry.testerBacklogPriority || ""}
+              testerBacklogStartDate={entry.testerBacklogStartDate || ""}
+              testerBacklogEndDate={entry.testerBacklogEndDate || ""}
+            />
+          ))}
+        </tbody>
+      </table>
     </section>
   );
 }

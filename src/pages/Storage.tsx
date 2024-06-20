@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import StorageStatsList from "../components/layout/storagePage/StorageStatsList";
+import Card from "../components/ui/Card";
 
 interface StorageStats {
   id: string;
@@ -61,9 +62,8 @@ export default function StoragePage() {
   }
 
   return (
-    <section>
-      <h1>Storage Page</h1>
-      <StorageStatsList storageStats={storageStats} />
-    </section>
+      <Card>
+        <StorageStatsList storageStats={storageStats} />
+      </Card>
   );
 }

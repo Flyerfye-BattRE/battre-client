@@ -1,0 +1,21 @@
+.deleteButton {
+  cursor: pointer;
+  width: 100px;
+  height: 100px;
+  /* width: 50px;
+  height: 50px; */
+  max-width: 100%;  /* Ensures image doesn't exceed container */
+  max-height: 100%; /* Ensures image doesn't exceed container */
+  border: none;
+  padding: 0;
+  display: inline-block;
+}
+
+.deleteIcon {
+  width: 100%;   /* Ensures image scales down proportionally */
+  height: 100%;  /* Ensures image scales down proportionally */
+  max-width: 100%;  /* Ensures image doesn't exceed container */
+  max-height: 100%; /* Ensures image doesn't exceed container */
+  /* background: none; */
+  background: url('../../assets/icons/redX.png') no-repeat center center;
+}

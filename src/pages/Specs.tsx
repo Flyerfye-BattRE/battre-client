@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import BatterySpecsList from "../components/layout/specsPage/BatterySpecsList";
+import Card from "../components/ui/Card";
 
 interface BatterySpecs {
   id: string;
@@ -69,8 +70,9 @@ export default function SpecPage() {
 
   return (
     <section>
-      <h1>Spec Page</h1>
-      <BatterySpecsList batterySpecs={batterySpecs} />
+      <Card>
+        <BatterySpecsList batterySpecs={batterySpecs} />
+      </Card>
     </section>
   );
 }

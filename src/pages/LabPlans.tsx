@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import LabPlanList from "../components/layout/labPage/LabPlanList";
-import LabSubNavigation from "../components/layout/labPage/LabSubNavigation";
+import Card from "../components/ui/Card";
 
 interface LabPlan {
   id: string;
@@ -63,9 +63,9 @@ export default function LabPlansPage() {
 
   return (
     <section>
-      <LabSubNavigation />
-      <h1>Lab Plans Page</h1>
-      <LabPlanList labPlans={labPlans} />
+      <Card>
+        <LabPlanList labPlans={labPlans} />
+      </Card>
     </section>
   );
 }

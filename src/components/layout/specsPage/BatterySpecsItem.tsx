@@ -1,6 +1,23 @@
+import classes from "../TableItem.module.css";
+
 export default function BatterySpecsItem(props) {
   return (
-    <li>
+    <tr>
+      <td>{props.batteryTypeId}</td>
+      <td>{props.tierId}</td>
+      <td>{props.mfc}</td>
+      <td>{props.terminalLayoutId}</td>
+      <td>{props.composition}</td>
+      <td className={classes.annotatedRowCell} title={props.safetyInfo}>
+        {props.safetyInfo && "INFO"}
+      </td>
+      <td>
+        {props.minVoltage || "?"}-{props.maxVoltage || "?"} V
+      </td>
+      <td>
+        {props.minCurrent || "?"}-{props.maxCurrent || "?"} mA
+      </td>
+      {/* <li>
       <div>
         <h3>
           Battery Type {props.batteryTypeId} [Tier {props.tierId}]--{props.mfc}
@@ -15,6 +32,7 @@ export default function BatterySpecsItem(props) {
           &gt;&gt; Current: {props.minCurrent} - {props.maxCurrent} mA{" "}
         </h4>
       </div>
-    </li>
+    </li> */}
+    </tr>
   );
 }

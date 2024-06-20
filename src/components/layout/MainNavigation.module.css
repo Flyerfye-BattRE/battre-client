@@ -1,43 +1,138 @@
 .header {
-  width: 100%;
+  width: 80%; /* Adjusted width for the header */
   height: 5rem;
   display: flex;
   align-items: center;
   font-family: 'Arial', sans-serif;
   justify-content: space-between;
+  padding: 0 10%; /* Adjusted padding for the header */
+}
+
+.banner {
+  width: 100%;
+  height: 5rem;
+  background: linear-gradient(to right, rgba(0, 71, 119, 1), rgba(0, 71, 119, 0.5)), url('../../assets/images/battery_banner.png') no-repeat center center;
+  background-size: cover;
   background-color: #004777;
-  padding: 0 10%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }
 
 .logo {
   font-size: 2rem;
   color: white;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
-.header ul {
+.nav {
+  flex: 1; /* Allow the nav to take up remaining space */
+  display: flex;
+  justify-content: space-between; /* Distribute space between the children */
+  align-items: center;
+}
+.nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: flex;
-  align-items: baseline;
+  display: flex; /* Change display to flex */
+  align-items: center;
+  justify-content: space-between; /* Adjust as needed */
+  width: 100%; /* Ensure the ul takes full width */
+  z-index: 1; /* To ensure it's above the banner */
 }
 
-.header li {
-  margin-left: 3rem;
+.nav li {
+  position: relative;
+  padding: 1rem; /* Adjust padding */
+  border-radius: 8px; /* Rounded corners for the bezels */
+  transition: background-color 0.3s ease; /* Smooth transition for background color change */
 }
 
-.header a {
+.nav li:not(.logo):hover {
+  background-color: gray; /* Change background color to gray on hover */
+}
+
+.nav a {
   text-decoration: none;
   font-size: 1.5rem;
   color: #b8ccfc;
+  padding: 0.5rem 1rem; /* Adjust padding */
 }
 
-.header a:hover,
-.header a:active,
-.header a.active {
+.nav a:hover,
+.nav a:active,
+.nav a.active {
   color: white;
 }
+
+.dropdownMenu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 1px);
+  left: 0;
+  background-color: #004777;
+  /* background-color: #eaff04; */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  z-index: 1000;
+}
+
+.dropdown:hover .dropdownMenu {
+  display: block;
+}
+
+.dropdownMenu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdownMenu a {
+  font-size: 1rem;
+}
+
+.dropdownMenu li {
+  padding: 0.5rem 1rem;
+  /* border-bottom: 1px solid #15ff00; */
+  white-space: nowrap; /* Prevent text from wrapping */
+  /* display: block;  */
+  text-align: center; /* Center align text */
+}
+
+.dropdown::after {
+  content: "";
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid #b8ccfc; /* Color of the arrow */
+  position: absolute;
+  top: calc(50% - 3px); /* Adjust vertical positioning */
+  right: 10px; /* Adjust horizontal positioning */
+}
+
+/* .dropdownMenu li:last-child {
+  border-bottom: none;
+} */
+
+/* .dropdownMenu li::before {
+  content: "\2022"; 
+  color: #cc2062; 
+  display: inline-block;
+  width: 1em; 
+  margin-right: 0.5rem; 
+} */
+
+.dropdownMenu .link {
+  /* color: #ff00ee; */
+  text-decoration: none;
+  display: block;
+  padding: 0.5rem 0; 
+}
+
 
 .badge {
   background-color: #cc2062;

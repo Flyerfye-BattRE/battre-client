@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import BatteryInvList from "../components/layout/opsPage/BatteryInvList";
-import OpsSubNavigation from "../components/layout/opsPage/OpsSubNavigation";
+import Card from "../components/ui/Card";
 
 interface BatteryInv {
   id: string;
@@ -71,9 +71,9 @@ export default function OpsBatteryPage() {
 
   return (
     <section>
-      <OpsSubNavigation />
-      <h1>Ops Battery Page</h1>
-      <BatteryInvList batteryInv={batteryInv} updateFn={triggerUpdate} />
+      <Card>
+        <BatteryInvList batteryInv={batteryInv} updateFn={triggerUpdate} />
+      </Card>
     </section>
   );
 }

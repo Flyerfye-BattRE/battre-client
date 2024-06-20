@@ -1,0 +1,42 @@
+.section {
+  flex: 1; /* Allow the nav to take up remaining space */
+  display: block;
+  justify-content: space-between; /* Distribute space between the children */
+  align-items: center;
+  overflow: hidden; /* Hide overflow content */
+}
+
+.tableTitle {
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  padding: 1rem;
+  background-color: dodgerblue;
+  margin: 0;
+}
+
+.dataTable {
+  border-collapse: collapse; /* Collapse table borders */
+  width: 300px;
+  /* margin-top: 5px;  */
+  margin: 1rem;
+}
+
+.dataTable thead {
+  height: 20px; /* Adjust height as needed */
+  background-color: #f2f2f2; /* Optional: Background color for header row */
+  text-align: left; /* Optional: Align text to the left */
+  border: 1px solid #ddd; /* Optional: Border color and style */
+  padding: 6px; /* Adjust padding inside the cell */
+}
+
+.dataTable td {
+  /* border: 3px solid #e10000;  */
+  border: 1px solid #ccc;/* Border style */
+  padding: 8px; /* Padding for cell content */
+  text-align: center; /* Center align text in cells */
+}
+
+.annotatedHeaderColumn {
+  text-decoration: underline dashed;
+  text-decoration-color: gray; /* Change the underline color to light gray */
+}

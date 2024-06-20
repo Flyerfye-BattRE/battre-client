@@ -1,6 +1,7 @@
 import { useState } from "react";
 import CustomerForm from "./CustomerForm";
 import { CustomerData } from "../../../types";
+import classes from "../TableItem.module.css";
 
 export default function CustomerItem(props) {
   const [isUpdateCustomerDialogOpen, setIsUpdateCustomerDialogOpen] =
@@ -121,42 +122,78 @@ export default function CustomerItem(props) {
   };
 
   return (
-    <li>
-      <div>
-        <h3>
-          {props.firstName} {props.lastName}
-        </h3>
-        <h4>&gt;&gt; Phone: {props.phone}</h4>
-        <h4>&gt;&gt; E-mail: {props.email}</h4>
-        <h4>&gt;&gt; Address: {props.address}</h4>
-        <h4>&gt;&gt; Loyalty #: {props.loyaltyId}</h4>
-        <h3>
-          <button
-            type="button"
-            onClick={() => setIsUpdateCustomerDialogOpen(true)}
-          >
-            Update
-          </button>
-          <button type="button" onClick={deleteCustomerFn}>
-            Delete
-          </button>
-        </h3>
-        {isUpdateCustomerDialogOpen && (
-          <CustomerForm
-            newCustomer={false}
-            prevData={{
-              firstName: props.firstName,
-              lastName: props.lastName,
-              email: props.email,
-              phone: props.phone,
-              address: props.address,
-              loyaltyId: props.loyaltyId,
-            }}
-            onSubmit={handleUpdateCustomer}
-            onCancel={handleCancel}
-          />
-        )}
-      </div>
-    </li>
+    <tr>
+      <td className={classes.summaryColumn}>
+        {props.firstName} {props.lastName}
+      </td>
+      <td className={classes.summaryColumn}>{props.phone}</td>
+      <td className={classes.summaryColumn}>{props.email}</td>
+      <td className={classes.summaryColumn}>{props.address}</td>
+      <td className={classes.summaryColumn}>{props.loyaltyId.substring(0,8)}</td>
+      <td className={classes.summaryColumn}>
+        <button
+          type="button"
+          onClick={() => setIsUpdateCustomerDialogOpen(true)}
+        >
+          Update
+        </button>{" "}
+        <button type="button" onClick={deleteCustomerFn}>
+          Delete
+        </button>
+      </td>
+      {isUpdateCustomerDialogOpen && (
+        <CustomerForm
+          newCustomer={false}
+          prevData={{
+            firstName: props.firstName,
+            lastName: props.lastName,
+            email: props.email,
+            phone: props.phone,
+            address: props.address,
+            loyaltyId: props.loyaltyId,
+          }}
+          onSubmit={handleUpdateCustomer}
+          onCancel={handleCancel}
+        />
+      )}
+    </tr>
+
+    // <li>
+    //   <div>
+    //     <h3>
+    //       {props.firstName} {props.lastName}
+    //     </h3>
+    //     <h4>&gt;&gt; Phone: {props.phone}</h4>
+    //     <h4>&gt;&gt; E-mail: {props.email}</h4>
+    //     <h4>&gt;&gt; Address: {props.address}</h4>
+    //     <h4>&gt;&gt; Loyalty #: {props.loyaltyId}</h4>
+    //     <h3>
+    //       <button
+    //         type="button"
+    //         onClick={() => setIsUpdateCustomerDialogOpen(true)}
+    //       >
+    //         Update
+    //       </button>
+    //       <button type="button" onClick={deleteCustomerFn}>
+    //         Delete
+    //       </button>
+    //     </h3>
+    //     {isUpdateCustomerDialogOpen && (
+    //       <CustomerForm
+    //         newCustomer={false}
+    //         prevData={{
+    //           firstName: props.firstName,
+    //           lastName: props.lastName,
+    //           email: props.email,
+    //           phone: props.phone,
+    //           address: props.address,
+    //           loyaltyId: props.loyaltyId,
+    //         }}
+    //         onSubmit={handleUpdateCustomer}
+    //         onCancel={handleCancel}
+    //       />
+    //     )}
+    //   </div>
+    // </li>
   );
 }
