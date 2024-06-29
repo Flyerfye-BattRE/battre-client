@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import RefurbBacklogList from "../components/layout/labPage/RefurbBacklogList";
 import TesterBacklogList from "../components/layout/labPage/TesterBacklogList";
 import Card from "../components/ui/Card";
+import config from "../config/config";
 
 interface TesterBacklog {
   id: string;
@@ -38,7 +39,7 @@ export default function LabBacklogPage() {
 
   useEffect(() => {
     setIsTesterLoading(true);
-    fetch("http://localhost:8080/lab/getTesterBacklog", {
+    fetch(config.apiBaseUrl + "/lab/getTesterBacklog", {
       method: "GET",
       headers: {
         // 'Content-Type': 'application/json'
@@ -73,7 +74,7 @@ export default function LabBacklogPage() {
       });
 
     setIsRefurbLoading(true);
-    fetch("http://localhost:8080/lab/getRefurbPlans", {
+    fetch(config.apiBaseUrl + "/lab/getRefurbPlans", {
       method: "GET",
       headers: {
         // 'Content-Type': 'application/json'

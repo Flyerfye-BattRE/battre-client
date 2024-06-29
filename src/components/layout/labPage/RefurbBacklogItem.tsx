@@ -2,6 +2,7 @@ import { useState } from "react";
 import ChangePriorityDialog from "./ChangePriorityDialog";
 import classes from "../TableItem.module.css";
 import { formatDate } from "../../../utils/utils";
+import config from "../../../config/config";
 
 export default function RefurbBacklogItem(props) {
   const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
@@ -26,7 +27,7 @@ export default function RefurbBacklogItem(props) {
         priority +
         "]"
     );
-    fetch("http://localhost:8080/lab/changeBatteryRefurbPriority", {
+    fetch(config.apiBaseUrl + "/lab/changeBatteryRefurbPriority", {
       method: "POST",
       headers: {
         batteryId: props.batteryId,

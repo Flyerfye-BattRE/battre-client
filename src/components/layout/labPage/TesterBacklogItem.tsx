@@ -2,6 +2,7 @@ import { useState } from "react";
 import ChangePriorityDialog from "./ChangePriorityDialog";
 import classes from "../TableItem.module.css";
 import { formatDate } from "../../../utils/utils";
+import config from "../../../config/config";
 
 export default function TesterBacklogItem(props) {
   const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
@@ -26,7 +27,7 @@ export default function TesterBacklogItem(props) {
         priority +
         "]"
     );
-    fetch("http://localhost:8080/lab/changeBatteryTesterPriority", {
+    fetch(config.apiBaseUrl + "/lab/changeBatteryTesterPriority", {
       method: "POST",
       headers: {
         batteryId: props.batteryId,

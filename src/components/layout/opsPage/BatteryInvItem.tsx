@@ -1,10 +1,11 @@
+import config from "../../../config/config";
 import DeleteButton from "../../ui/DeleteButton";
 import classes from "../TableItem.module.css";
 
 export default function BatteryInvItem(props) {
   const destroyBatteryFn = () => {
     console.log("Destroying battery [" + props.batteryId + "]");
-    fetch("http://localhost:8080/ops/destroyBattery", {
+    fetch(config.apiBaseUrl + "/ops/destroyBattery", {
       method: "DELETE",
       headers: {
         batteryId: props.batteryId,

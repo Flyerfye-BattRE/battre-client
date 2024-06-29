@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import RefurbStnList from "../components/layout/labPage/RefurbStnList";
 import TesterStnList from "../components/layout/labPage/TesterStnList";
 import Card from "../components/ui/Card";
+import config from "../config/config";
 
 interface TesterStation {
   id: string;
@@ -33,7 +34,7 @@ export default function LabStationsPage() {
 
   useEffect(() => {
     setIsTesterStnsLoading(true);
-    fetch("http://localhost:8080/lab/getTesterStnInfo", {
+    fetch(config.apiBaseUrl + "/lab/getTesterStnInfo", {
       method: "GET",
       headers: {
         // 'Content-Type': 'application/json'
@@ -68,7 +69,7 @@ export default function LabStationsPage() {
       });
 
     setIsRefurbStnsLoading(true);
-    fetch("http://localhost:8080/lab/getRefurbStnInfo", {
+    fetch(config.apiBaseUrl + "/lab/getRefurbStnInfo", {
       method: "GET",
       headers: {
         // 'Content-Type': 'application/json'

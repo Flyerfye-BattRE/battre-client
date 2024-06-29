@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import BatterySpecsList from "../components/layout/specsPage/BatterySpecsList";
 import Card from "../components/ui/Card";
+import config from "../config/config";
 
 interface BatterySpecs {
   id: string;
@@ -24,7 +25,7 @@ export default function SpecPage() {
   // https://youtu.be/Dorf8i6lCuk?t=11464
   useEffect(() => {
     setIsLoading(true);
-    fetch("http://localhost:8080/spec/getAllBatterySpecs", {
+    fetch(config.apiBaseUrl + "/spec/getAllBatterySpecs", {
       method: "GET",
       headers: {
         // 'Content-Type': 'application/json'

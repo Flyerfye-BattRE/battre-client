@@ -3,6 +3,7 @@ import CustomerList from "../components/layout/opsPage/CustomerList";
 import CustomerForm from "../components/layout/opsPage/CustomerForm";
 import { CustomerData } from "../types";
 import Card from "../components/ui/Card";
+import config from "../config/config";
 
 interface CustomerInfo {
   id: string;
@@ -38,7 +39,7 @@ export default function OpsCustomerPage() {
 
   const addNewCustomerFn = (data: CustomerData) => {
     console.log("Adding customer " + data.firstName + " " + data.lastName);
-    fetch("http://localhost:8080/ops/addCustomer", {
+    fetch(config.apiBaseUrl + "/ops/addCustomer", {
       method: "POST",
       headers: {
         lastName: data.lastName,
@@ -76,7 +77,7 @@ export default function OpsCustomerPage() {
   // https://youtu.be/Dorf8i6lCuk?t=11464
   useEffect(() => {
     setIsLoading(true);
-    fetch("http://localhost:8080/ops/getCustomerList", {
+    fetch(config.apiBaseUrl + "/ops/getCustomerList", {
       method: "GET",
       headers: {
         // 'Content-Type': 'application/json'

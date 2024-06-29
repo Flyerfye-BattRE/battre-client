@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import config from '../config/config';
 import LabPlanList from "../components/layout/labPage/LabPlanList";
 import Card from "../components/ui/Card";
 
@@ -19,7 +20,7 @@ export default function LabPlansPage() {
   // https://youtu.be/Dorf8i6lCuk?t=11464
   useEffect(() => {
     setIsLoading(true);
-    fetch("http://localhost:8080/lab/getLabPlans", {
+    fetch(config.apiBaseUrl + "/lab/getLabPlans", {
       method: "GET",
       headers: {
         // 'Content-Type': 'application/json'

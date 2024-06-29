@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import BatteryInvList from "../components/layout/opsPage/BatteryInvList";
 import Card from "../components/ui/Card";
+import config from "../config/config";
 
 interface BatteryInv {
   id: string;
@@ -25,7 +26,7 @@ export default function OpsBatteryPage() {
   // https://youtu.be/Dorf8i6lCuk?t=11464
   useEffect(() => {
     setIsLoading(true);
-    fetch("http://localhost:8080/ops/getBatteryInventory", {
+    fetch(config.apiBaseUrl + "/ops/getBatteryInventory", {
       method: "GET",
       headers: {
         // 'Content-Type': 'application/json'

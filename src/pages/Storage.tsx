@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import StorageStatsList from "../components/layout/storagePage/StorageStatsList";
 import Card from "../components/ui/Card";
+import config from "../config/config";
 
 interface StorageStats {
   id: string;
@@ -17,7 +18,7 @@ export default function StoragePage() {
   // https://youtu.be/Dorf8i6lCuk?t=11464
   useEffect(() => {
     setIsLoading(true);
-    fetch("http://localhost:8080/storage/getStorageStats", {
+    fetch(config.apiBaseUrl + "/storage/getStorageStats", {
       method: "GET",
       headers: {
         // 'Content-Type': 'application/json'

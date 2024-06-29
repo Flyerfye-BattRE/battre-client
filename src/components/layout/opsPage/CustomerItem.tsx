@@ -2,6 +2,7 @@ import { useState } from "react";
 import CustomerForm from "./CustomerForm";
 import { CustomerData } from "../../../types";
 import classes from "../TableItem.module.css";
+import config from "../../../config/config";
 
 export default function CustomerItem(props) {
   const [isUpdateCustomerDialogOpen, setIsUpdateCustomerDialogOpen] =
@@ -44,7 +45,7 @@ export default function CustomerItem(props) {
       );
     }
 
-    fetch("http://localhost:8080/ops/updateCustomer", {
+    fetch(config.apiBaseUrl + "/ops/updateCustomer", {
       method: "PUT",
       headers: {
         customerId: props.customerId,
@@ -92,7 +93,7 @@ export default function CustomerItem(props) {
         props.customerId +
         "]"
     );
-    fetch("http://localhost:8080/ops/removeCustomer", {
+    fetch(config.apiBaseUrl + "/ops/removeCustomer", {
       method: "DELETE",
       headers: {
         customerId: props.customerId,

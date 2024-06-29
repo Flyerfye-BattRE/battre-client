@@ -1,13 +1,14 @@
 import { useState } from "react";
 import Card from "../components/ui/Card";
 import classes from "./OverviewPage.module.css";
+import config from "../config/config";
 
 export default function OverviewPage() {
   const [triageStatus, setTriageStatus] = useState("No Status");
 
   const recvOrderFn = () => {
     console.log("Receiving battery order");
-    fetch("http://localhost:8080/triage", {
+    fetch(config.apiBaseUrl + "/triage", {
       method: "GET",
       // body: JSON.stringify("Here's the body"),
       headers: {
