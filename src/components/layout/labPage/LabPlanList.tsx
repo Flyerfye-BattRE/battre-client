@@ -1,7 +1,11 @@
 import LabPlanItem from "./LabPlanItem";
 import classes from "../TableList.module.css";
 
-export default function LabPlanList(props) {
+interface LabPlanListProps {
+  labPlans: any;
+}
+
+export default function LabPlanList(props: LabPlanListProps) {
   return (
     <section className={classes.section}>
       <h2 className={classes.tableTitle}>Lab Plans</h2>

@@ -3,9 +3,10 @@ import StorageStatsList from "../components/layout/storagePage/StorageStatsList"
 import Card from "../components/ui/Card";
 import config from "../config/config";
 
-interface StorageStats {
+export interface StorageStats {
   id: string;
   batteryTierId: number;
+  usedStorage: number;
   availStorage: number;
   capacity: number;
 }
@@ -34,9 +35,16 @@ export default function StoragePage() {
       .then((data) => {
         if (data && Array.isArray(data.tierStatsList)) {
           const tierStats: StorageStats[] = data.tierStatsList.map(
-            (stat, index) => ({
+            // (stat, index) => ({
+            //   id: String(index),
+            //   ...stat,
+            // })
+            (storageStat, index) => ({
               id: String(index),
-              ...stat,
+              batteryTierId: storageStat.batteryTierId,
+              usedStorage: storageStat.usedStorage,
+              availStorage: storageStat.capacity-storageStat.usedStorage,
+              capacity: storageStat.capacity,
             })
           );
 

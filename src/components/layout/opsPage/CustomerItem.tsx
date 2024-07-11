@@ -3,8 +3,11 @@ import CustomerForm from "./CustomerForm";
 import { CustomerData } from "../../../types";
 import classes from "../TableItem.module.css";
 import config from "../../../config/config";
+import { CustomerInfo } from "../../../pages/OpsCustomerPage";
+import DeleteButton from "../../ui/DeleteButton";
+import UpdateButton from "../../ui/UpdateButton";
 
-export default function CustomerItem(props) {
+export default function CustomerItem(props: CustomerInfo) {
   const [isUpdateCustomerDialogOpen, setIsUpdateCustomerDialogOpen] =
     useState<boolean>(false);
 
@@ -130,17 +133,13 @@ export default function CustomerItem(props) {
       <td className={classes.summaryColumn}>{props.phone}</td>
       <td className={classes.summaryColumn}>{props.email}</td>
       <td className={classes.summaryColumn}>{props.address}</td>
-      <td className={classes.summaryColumn}>{props.loyaltyId.substring(0,8)}</td>
       <td className={classes.summaryColumn}>
-        <button
-          type="button"
-          onClick={() => setIsUpdateCustomerDialogOpen(true)}
-        >
-          Update
-        </button>{" "}
-        <button type="button" onClick={deleteCustomerFn}>
-          Delete
-        </button>
+        {props.loyaltyId.substring(0, 8)}
+      </td>
+      <td className={classes.summaryColumn}>
+        <UpdateButton titleText="Update Customer" onClick={deleteCustomerFn} />
+        {" "}
+        <DeleteButton titleText="Delete Customer" onClick={deleteCustomerFn} />
       </td>
       {isUpdateCustomerDialogOpen && (
         <CustomerForm
@@ -158,43 +157,5 @@ export default function CustomerItem(props) {
         />
       )}
     </tr>
-
-    // <li>
-    //   <div>
-    //     <h3>
-    //       {props.firstName} {props.lastName}
-    //     </h3>
-    //     <h4>&gt;&gt; Phone: {props.phone}</h4>
-    //     <h4>&gt;&gt; E-mail: {props.email}</h4>
-    //     <h4>&gt;&gt; Address: {props.address}</h4>
-    //     <h4>&gt;&gt; Loyalty #: {props.loyaltyId}</h4>
-    //     <h3>
-    //       <button
-    //         type="button"
-    //         onClick={() => setIsUpdateCustomerDialogOpen(true)}
-    //       >
-    //         Update
-    //       </button>
-    //       <button type="button" onClick={deleteCustomerFn}>
-    //         Delete
-    //       </button>
-    //     </h3>
-    //     {isUpdateCustomerDialogOpen && (
-    //       <CustomerForm
-    //         newCustomer={false}
-    //         prevData={{
-    //           firstName: props.firstName,
-    //           lastName: props.lastName,
-    //           email: props.email,
-    //           phone: props.phone,
-    //           address: props.address,
-    //           loyaltyId: props.loyaltyId,
-    //         }}
-    //         onSubmit={handleUpdateCustomer}
-    //         onCancel={handleCancel}
-    //       />
-    //     )}
-    //   </div>
-    // </li>
   );
 }

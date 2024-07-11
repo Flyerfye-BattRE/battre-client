@@ -1,7 +1,12 @@
 import BatterySpecsItem from "./BatterySpecsItem";
 import classes from "../TableList.module.css";
+import { BatterySpecs } from "../../../pages/SpecsPage";
 
-export default function BatterySpecsList(props) {
+type BatterySpecsListProp = {
+  batterySpecs: BatterySpecs[]
+};
+
+export default function BatterySpecsList(props: BatterySpecsListProp) {
   return (
     <section className={classes.section}>
       <h2 className={classes.tableTitle}>Battery Specs</h2>
@@ -41,16 +46,19 @@ export default function BatterySpecsList(props) {
           {props.batterySpecs.map((spec) => (
             <BatterySpecsItem
               key={spec.id}
+              id={spec.id}
+              size={spec.size}
+              group={spec.group}
               batteryTypeId={spec.batteryTypeId || ""}
               mfc={spec.mfc || ""}
               terminalLayoutId={spec.terminalLayoutId || ""}
               tierId={spec.tierId || ""}
               composition={spec.composition || ""}
-              safetyInfo={spec.optionalSafetyInfo || ""}
-              minVoltage={spec.optionalMinVoltage || ""}
-              maxVoltage={spec.optionalMaxVoltage || ""}
-              minCurrent={spec.optionalMinCurrent || ""}
-              maxCurrent={spec.optionalMaxCurrent || ""}
+              optionalSafetyInfo={spec.optionalSafetyInfo || ""}
+              optionalMinVoltage={spec.optionalMinVoltage || ""}
+              optionalMaxVoltage={spec.optionalMaxVoltage || ""}
+              optionalMinCurrent={spec.optionalMinCurrent || ""}
+              optionalMaxCurrent={spec.optionalMaxCurrent || ""}
             />
           ))}
         </tbody>

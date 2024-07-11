@@ -1,7 +1,12 @@
 import StorageStatsItem from "./StorageStatsItem";
 import classes from "../TableList.module.css";
+import { StorageStats } from "../../../pages/StoragePage";
 
-export default function StorageStatsList(props) {
+type StorageStatsListProp = {
+  storageStats: StorageStats[]
+};
+
+export default function StorageStatsList(props: StorageStatsListProp) {
   return (
     <section className={classes.section}>
       <h2 className={classes.tableTitle}>Battery Storage</h2>
@@ -12,10 +17,10 @@ export default function StorageStatsList(props) {
               <b>Tier</b>
             </td>
             <td
-              title="Available Storage Slots"
+              title="Filled Storage Slots"
               className={classes.annotatedHeaderColumn}
             >
-              <b>Avail</b>
+              <b>Usage</b>
             </td>
             <td
               title="Total Storage Capacity"
@@ -32,9 +37,11 @@ export default function StorageStatsList(props) {
           {props.storageStats.map((stats) => (
             <StorageStatsItem
               key={stats.id}
-              batteryTierId={stats.batteryTierId || ""}
-              availStorage={stats.availStorage || ""}
-              capacity={stats.capacity || ""}
+              id={stats.id}
+              batteryTierId={stats.batteryTierId || -1}
+              usedStorage={stats.usedStorage || 0}
+              availStorage={stats.availStorage || 1}
+              capacity={stats.capacity || 1}
             />
           ))}
         </tbody>

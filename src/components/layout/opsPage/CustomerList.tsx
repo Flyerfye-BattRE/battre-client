@@ -1,10 +1,19 @@
 import CustomerItem from "./CustomerItem";
 import classes from "../TableList.module.css";
+import { CustomerInfo } from "../../../pages/OpsCustomerPage";
+import CreateButton from "../../ui/CreateButton";
 
-export default function CustomerList(props) {
+type CustomerListProp = {
+  customerList: CustomerInfo[];
+  addCustomerFn: () => void;
+  updateFn: () => void;
+};
+
+export default function CustomerList(props: CustomerListProp) {
   return (
     <section className={classes.section}>
-      <h2 className={classes.tableTitle}>Customer List</h2>
+      <h2 className={classes.tableTitle}>Customer List <CreateButton  titleText="Add Customer" onClick={props.addCustomerFn} /></h2>
+      
       <table className={classes.dataTable}>
         <thead>
           <tr>
@@ -32,6 +41,7 @@ export default function CustomerList(props) {
           {props.customerList.map((cust) => (
             <CustomerItem
               key={cust.id}
+              id={cust.id}
               customerId={cust.customerId || ""}
               lastName={cust.lastName || ""}
               firstName={cust.firstName || ""}

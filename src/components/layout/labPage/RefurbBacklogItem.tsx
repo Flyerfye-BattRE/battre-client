@@ -3,8 +3,9 @@ import ChangePriorityDialog from "./ChangePriorityDialog";
 import classes from "../TableItem.module.css";
 import { formatDate } from "../../../utils/utils";
 import config from "../../../config/config";
+import { RefurbBacklog } from "../../../pages/LabBacklogPage";
 
-export default function RefurbBacklogItem(props) {
+export default function RefurbBacklogItem(props: RefurbBacklog) {
   const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
   const [priority, setPriority] = useState<number>(props.refurbPlanPriority);
 

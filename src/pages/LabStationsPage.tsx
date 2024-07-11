@@ -4,23 +4,28 @@ import TesterStnList from "../components/layout/labPage/TesterStnList";
 import Card from "../components/ui/Card";
 import config from "../config/config";
 
-interface TesterStation {
+export interface TesterStation {
   id: string;
-  testerStnId: number;
-  terminalLayoutId: number;
+  // testerStnId: number;
+  testerStnId: string;
+  // terminalLayoutId: number;
+  terminalLayoutId: string;
   inUse: boolean;
-  optionalActiveBatteryId: number;
+  // optionalActiveBatteryId: number;
+  optionalActiveBatteryId: string;
   lastActiveDate: string;
   lastCalibrationDate: string;
   nextCalibrationDate: string;
 }
 
-interface RefurbStation {
+export interface RefurbStation {
   id: string;
-  refurbStnId: number;
+  // refurbStnId: number;
+  refurbStnId: string;
   refurbStationClass: string;
   inUse: boolean;
-  optionalActiveBatteryId: number;
+  // optionalActiveBatteryId: number;
+  optionalActiveBatteryId: string;
   lastActiveDate: string;
   lastCalibrationDate: string;
   nextCalibrationDate: string;

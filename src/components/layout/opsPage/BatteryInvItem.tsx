@@ -1,8 +1,9 @@
 import config from "../../../config/config";
+import { BatteryInv } from "../../../pages/OpsBatteryPage";
 import DeleteButton from "../../ui/DeleteButton";
 import classes from "../TableItem.module.css";
 
-export default function BatteryInvItem(props) {
+export default function BatteryInvItem(props: BatteryInv) {
   const destroyBatteryFn = () => {
     console.log("Destroying battery [" + props.batteryId + "]");
     fetch(config.apiBaseUrl + "/ops/destroyBattery", {
@@ -35,10 +36,10 @@ export default function BatteryInvItem(props) {
       <td>{props.batteryTypeId}</td>
       <td>{props.batteryStatus}</td>
       <td>{props.intakeOrderId}</td>
-      <td>{props.optional_outputOOrderId}</td>
-      <td>{props.optional_holdId}</td>
+      <td>{props.optionalOutputOrderId}</td>
+      <td>{props.optionalHoldId}</td>
       <td>
-        <DeleteButton  onClick={destroyBatteryFn} />
+        <DeleteButton  titleText="Destroy Battery" onClick={destroyBatteryFn} />
         {/* <button type="button" onClick={destroyBatteryFn}>
           Destroy
         </button> */}

@@ -4,19 +4,22 @@ import TesterBacklogList from "../components/layout/labPage/TesterBacklogList";
 import Card from "../components/ui/Card";
 import config from "../config/config";
 
-interface TesterBacklog {
+export interface TesterBacklog {
   id: string;
-  testerBacklogId: number;
-  batteryId: number;
+  // testerBacklogId: number;
+  // batteryId: number;
+  // testerBacklogPriority: number;
+  testerBacklogId: string;
+  batteryId: string;
   testerBacklogPriority: number;
   testerBacklogStartDate: string;
   testerBacklogEndDate: string;
 }
 
-interface RefurbBacklog {
+export interface RefurbBacklog {
   id: string;
-  refurbPlanId: number;
-  batteryId: number;
+  refurbPlanId: string;
+  batteryId: string;
   refurbPlanPriority: number;
   refurbPlanStartDate: string;
   refurbPlanEndDate: string;

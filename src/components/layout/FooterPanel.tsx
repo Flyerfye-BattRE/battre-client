@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import classes from "./FooterPanel.module.css";
 import AboutMeModal from "./AboutMeModal";
 
-export default function FooterPanel(props: any) {
+export default function FooterPanel() {
   const [aboutMeModalOpen, setAboutMeModalOpen] = useState(false);
 
   const openAboutMe = () => {
@@ -20,18 +20,18 @@ export default function FooterPanel(props: any) {
       <table style={{ width: "100%", borderCollapse: "collapse" }}>
             <tbody>
               <tr>
-                <td className="link">
+                <td>
                   {/* It is convention not to use a href tags when there is no navigation to another page
                 Using a disguised button here instead */}
                   <button className={classes.buttonLink} data-testid="application-grid-about-me-button" onClick={openAboutMe}>
                     About Me
                   </button>
                 </td>
-                <td className="link">
-                  <a href="https://www.linkedin.com/in/issabeekun/">LinkedIn</a>
+                <td>
+                  <a className={classes.footerLink} href="https://www.linkedin.com/in/issabeekun/">LinkedIn</a>
                 </td>
-                <td className="link">
-                  <a href="https://github.com/Flyerfye-BattRE">
+                <td>
+                  <a className={classes.footerLink} href="https://github.com/Flyerfye-BattRE">
                     GitHub
                   </a>
                 </td>

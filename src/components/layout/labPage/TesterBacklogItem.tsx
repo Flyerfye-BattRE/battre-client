@@ -3,8 +3,9 @@ import ChangePriorityDialog from "./ChangePriorityDialog";
 import classes from "../TableItem.module.css";
 import { formatDate } from "../../../utils/utils";
 import config from "../../../config/config";
+import { TesterBacklog } from "../../../pages/LabBacklogPage";
 
-export default function TesterBacklogItem(props) {
+export default function TesterBacklogItem(props: TesterBacklog) {
   const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
   const [priority, setPriority] = useState<number>(props.testerBacklogPriority);
 

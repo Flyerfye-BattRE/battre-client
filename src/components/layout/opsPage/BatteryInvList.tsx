@@ -1,7 +1,13 @@
 import BatteryInvItem from "./BatteryInvItem";
 import classes from "../TableList.module.css";
+import { BatteryInv } from "../../../pages/OpsBatteryPage";
 
-export default function BatteryInvList(props) {
+type BatteryInvProp = {
+  batteryInv: BatteryInv[]
+  updateFn: () => void;
+};
+
+export default function BatteryInvList(props: BatteryInvProp) {
   return (
     <section className={classes.section}>
       <h2 className={classes.tableTitle}>Battery Inventory</h2>
@@ -35,12 +41,13 @@ export default function BatteryInvList(props) {
           {props.batteryInv.map((batteryInv) => (
             <BatteryInvItem
               key={batteryInv.id}
+              id={batteryInv.id}
               batteryId={batteryInv.batteryId || ""}
               batteryStatus={batteryInv.batteryStatus}
               batteryTypeId={batteryInv.batteryTypeId}
               intakeOrderId={batteryInv.intakeOrderId}
-              optional_holdId={batteryInv.optional_holdId || ""}
-              optional_outputOrderId={batteryInv.optional_outputOrderId || ""}
+              optionalHoldId={batteryInv.optionalHoldId || ""}
+              optionalOutputOrderId={batteryInv.optionalOutputOrderId || ""}
               updateFn={props.updateFn}
             />
           ))}

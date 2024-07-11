@@ -5,15 +5,17 @@ import { CustomerData } from "../types";
 import Card from "../components/ui/Card";
 import config from "../config/config";
 
-interface CustomerInfo {
+export interface CustomerInfo {
   id: string;
-  customerId: number;
+  // customerId: number;
+  customerId: string;
   lastName: string;
   firstName: string;
   email: string;
   phone: string;
   address: string;
   loyaltyId: string;
+  updateFn: () => void;
 }
 
 export default function OpsCustomerPage() {
@@ -127,7 +129,7 @@ export default function OpsCustomerPage() {
         Add Customer
       </button>
       <Card>
-        <CustomerList customerList={customerList} updateFn={triggerUpdate} />
+        <CustomerList customerList={customerList} addCustomerFn={() => setIsAddCustomerDialogOpen(true)} updateFn={triggerUpdate} />
       </Card>
       {isAddCustomerDialogOpen && (
         <CustomerForm

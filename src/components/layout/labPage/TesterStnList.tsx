@@ -1,7 +1,12 @@
 import TesterStnItem from "./TesterStnItem";
 import classes from "../TableList.module.css";
+import { TesterStation } from "../../../pages/LabStationsPage";
 
-export default function TesterStnList(props) {
+type TesterStnListProp = {
+  testerStns: TesterStation[]
+};
+
+export default function TesterStnList(props: TesterStnListProp) {
   return (
     <section className={classes.section}>
       <h2 className={classes.tableTitle}>Tester Stations</h2>
@@ -32,6 +37,7 @@ export default function TesterStnList(props) {
           {props.testerStns.map((stn) => (
             <TesterStnItem
               key={stn.id}
+              id={stn.id}
               testerStnId={stn.testerStnId || ""}
               terminalLayoutId={stn.terminalLayoutId || ""}
               inUse={stn.inUse}

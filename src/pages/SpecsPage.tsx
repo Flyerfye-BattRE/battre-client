@@ -3,21 +3,30 @@ import BatterySpecsList from "../components/layout/specsPage/BatterySpecsList";
 import Card from "../components/ui/Card";
 import config from "../config/config";
 
-interface BatterySpecs {
+export interface BatterySpecs {
   id: string;
-  batteryTypeId: number;
+  size: number;
+  group: string;
+  // batteryTypeId: number;
+  batteryTypeId: string;
   mfc: string;
-  terminalLayoutId: number;
-  tierId: number;
+  // terminalLayoutId: number;
+  // tierId: number;
+  terminalLayoutId: string;
+  tierId: string;
   composition: string;
   optionalSafetyInfo: string;
-  optionalMinVoltage: number;
-  optionalMaxVoltage: number;
-  optionalMinCurrent: number;
-  optionalMaxCurrent: number;
+  // optionalMinVoltage: number;
+  // optionalMaxVoltage: number;
+  // optionalMinCurrent: number;
+  // optionalMaxCurrent: number;
+  optionalMinVoltage: string;
+  optionalMaxVoltage: string;
+  optionalMinCurrent: string;
+  optionalMaxCurrent: string;
 }
 
-export default function SpecPage() {
+export default function SpecsPage() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [batterySpecs, setBatterySpecs] = useState<BatterySpecs[]>([]);
 
@@ -43,6 +52,8 @@ export default function SpecPage() {
           const batterySpecs: BatterySpecs[] = data.batterySpecsList.map(
             (batterySpec, index) => ({
               id: String(index),
+              size: 1,
+              group: batterySpec.tierId,
               ...batterySpec,
             })
           );

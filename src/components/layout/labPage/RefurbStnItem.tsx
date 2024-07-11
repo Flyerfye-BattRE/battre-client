@@ -1,7 +1,8 @@
+import { RefurbStation } from "../../../pages/LabStationsPage";
 import { formatDate } from "../../../utils/utils";
 import classes from "../TableItem.module.css";
 
-export default function RefurbStnItem(props) {
+export default function RefurbStnItem(props: RefurbStation) {
   const [fRefurbStnLongActiveDate, fRefurbStnShortActiveDate] = formatDate(
     props.lastActiveDate
   );

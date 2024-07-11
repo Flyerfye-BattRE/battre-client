@@ -1,7 +1,12 @@
 import TesterBacklogItem from "./TesterBacklogItem";
 import classes from "../TableList.module.css";
+import { TesterBacklog } from "../../../pages/LabBacklogPage";
 
-export default function TesterBacklogList(props) {
+type TesterBacklogListProp = {
+  testerBacklog: TesterBacklog[]
+};
+
+export default function TesterBacklogList(props: TesterBacklogListProp) {
   return (
     <section className={classes.section}>
       <h2 className={classes.tableTitle}>Tester Backlog</h2>
@@ -32,9 +37,10 @@ export default function TesterBacklogList(props) {
           {props.testerBacklog.map((entry) => (
             <TesterBacklogItem
               key={entry.id}
+              id={entry.id}
               testerBacklogId={entry.testerBacklogId || ""}
               batteryId={entry.batteryId || ""}
-              testerBacklogPriority={entry.testerBacklogPriority || ""}
+              testerBacklogPriority={entry.testerBacklogPriority || 50}
               testerBacklogStartDate={entry.testerBacklogStartDate || ""}
               testerBacklogEndDate={entry.testerBacklogEndDate || ""}
             />

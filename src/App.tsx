@@ -6,8 +6,8 @@ import LabStationsPage from "./pages/LabStationsPage";
 import OpsBatteryPage from "./pages/OpsBatteryPage";
 import OpsCustomerPage from "./pages/OpsCustomerPage";
 import OverviewPage from "./pages/OverviewPage";
-import SpecsPage from "./pages/Specs";
-import StoragePage from "./pages/Storage";
+import SpecsPage from "./pages/SpecsPage";
+import StoragePage from "./pages/StoragePage";
 import Layout from "./components/layout/Layout";
 
 function App() {

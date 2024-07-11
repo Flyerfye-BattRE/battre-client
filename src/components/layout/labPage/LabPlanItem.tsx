@@ -1,4 +1,12 @@
-export default function LabPlanItem(props) {
+interface LabPlanItemProps {
+  labPlanId: number;
+  batteryId: number;
+  labPlanStatus: number;
+  optionalTesterRecordId: number;
+  optionalRefurbPlanId: number;
+}
+
+export default function LabPlanItem(props: LabPlanItemProps) {
   return (
     <tr>
       <td>{props.labPlanId}</td>

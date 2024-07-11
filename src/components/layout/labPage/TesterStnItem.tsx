@@ -1,7 +1,8 @@
+import { TesterStation } from "../../../pages/LabStationsPage";
 import { formatDate } from "../../../utils/utils";
 import classes from "../TableItem.module.css";
 
-export default function TesterStnItem(props) {
+export default function TesterStnItem(props: TesterStation) {
   const [fTesterStnLongActiveDate, fTesterStnShortActiveDate] = formatDate(
     props.lastActiveDate
   );

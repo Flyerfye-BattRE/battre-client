@@ -3,14 +3,18 @@ import BatteryInvList from "../components/layout/opsPage/BatteryInvList";
 import Card from "../components/ui/Card";
 import config from "../config/config";
 
-interface BatteryInv {
+export interface BatteryInv {
   id: string;
-  batteryId: number;
+  // batteryId: number;
+  batteryId: string;
   batteryStatus: string;
   batteryTypeId: number;
   intakeOrderId: number;
-  optional_holdId: number;
-  optional_outputOrderId: number;
+  // optionalHoldId: number;
+  // optionalOutputOrderId: number;
+  optionalHoldId: string;
+  optionalOutputOrderId: string;
+  updateFn: () => void;
 }
 
 export default function OpsBatteryPage() {

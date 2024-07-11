@@ -1,7 +1,12 @@
 import RefurbBacklogItem from "./RefurbBacklogItem";
 import classes from "../TableList.module.css";
 
-export default function RefurbBacklogList(props) {
+
+interface RefurbBacklogListProps {
+  refurbBacklog: any;
+}
+
+export default function RefurbBacklogList(props: RefurbBacklogListProps) {
   return (
     <section className={classes.section}>
       <h2 className={classes.tableTitle}>Refurb Backlog</h2>
@@ -59,6 +64,7 @@ export default function RefurbBacklogList(props) {
           {props.refurbBacklog.map((entry) => (
             <RefurbBacklogItem
               key={entry.id}
+              id={entry.id}
               refurbPlanId={entry.refurbPlanId || ""}
               batteryId={entry.batteryId || ""}
               refurbPlanPriority={entry.refurbPlanPriority || ""}
