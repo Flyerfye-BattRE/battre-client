@@ -32,7 +32,7 @@ export default function StorageSection() {
               usedStorage: storageStat.usedStorage,
               availStorage: storageStat.capacity - storageStat.usedStorage,
               capacity: storageStat.capacity,
-            })
+            }),
           );
 
           setStorageStats(tierStats);

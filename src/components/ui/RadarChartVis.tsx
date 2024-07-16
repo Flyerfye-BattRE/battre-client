@@ -24,12 +24,7 @@ export default function RadarChartVis(props: RadarChartProps) {
   return (
     <div style={{ width: "100%", height: "100%" }}>
       <ResponsiveContainer>
-        <RadarChart
-          cx="50%"
-          cy="50%"
-          outerRadius="80%"
-          data={props.data}
-        >
+        <RadarChart cx="50%" cy="50%" outerRadius="80%" data={props.data}>
           <PolarGrid />
           <PolarAngleAxis dataKey={props.bucket} />
           <PolarRadiusAxis />

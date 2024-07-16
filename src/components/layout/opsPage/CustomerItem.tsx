@@ -25,12 +25,12 @@ export default function CustomerItem(props: CustomerInfo) {
     console.log("Updating customer " + data.firstName + " " + data.lastName);
     if (props.lastName != data.lastName) {
       console.log(
-        "Changing lastName: " + props.lastName + " => " + data.lastName
+        "Changing lastName: " + props.lastName + " => " + data.lastName,
       );
     }
     if (props.firstName != data.firstName) {
       console.log(
-        "Changing firstName: " + props.firstName + " => " + data.firstName
+        "Changing firstName: " + props.firstName + " => " + data.firstName,
       );
     }
     if (props.email != data.email) {
@@ -44,7 +44,7 @@ export default function CustomerItem(props: CustomerInfo) {
     }
     if (props.loyaltyId != data.loyaltyId) {
       console.log(
-        "Changing loyaltyId: " + props.loyaltyId + " => " + data.loyaltyId
+        "Changing loyaltyId: " + props.loyaltyId + " => " + data.loyaltyId,
       );
     }
 
@@ -63,14 +63,17 @@ export default function CustomerItem(props: CustomerInfo) {
       .then((response) => {
         if (response.ok) {
           console.log(
-            "Finished updating customer " + data.firstName + " " + data.lastName
+            "Finished updating customer " +
+              data.firstName +
+              " " +
+              data.lastName,
           );
 
           // Trigger a re-render
           props.updateFn();
         } else {
           console.log(
-            "Failed to update customer " + data.firstName + " " + data.lastName
+            "Failed to update customer " + data.firstName + " " + data.lastName,
           );
         }
       })
@@ -81,7 +84,7 @@ export default function CustomerItem(props: CustomerInfo) {
             " " +
             data.lastName +
             ": ",
-          error
+          error,
         );
       });
   };
@@ -94,7 +97,7 @@ export default function CustomerItem(props: CustomerInfo) {
         props.lastName +
         "[" +
         props.customerId +
-        "]"
+        "]",
     );
     fetch(config.apiBaseUrl + "/ops/removeCustomer", {
       method: "DELETE",
@@ -111,7 +114,7 @@ export default function CustomerItem(props: CustomerInfo) {
               props.lastName +
               "[" +
               props.customerId +
-              "]"
+              "]",
           );
 
           // Trigger a re-render
@@ -137,8 +140,10 @@ export default function CustomerItem(props: CustomerInfo) {
         {props.loyaltyId.substring(0, 8)}
       </td>
       <td className={classes.summaryColumn}>
-        <UpdateButton titleText="Update Customer" onClick={() => setIsUpdateCustomerDialogOpen(true)} />
-        {" "}
+        <UpdateButton
+          titleText="Update Customer"
+          onClick={() => setIsUpdateCustomerDialogOpen(true)}
+        />{" "}
         <DeleteButton titleText="Delete Customer" onClick={deleteCustomerFn} />
       </td>
       {isUpdateCustomerDialogOpen && (

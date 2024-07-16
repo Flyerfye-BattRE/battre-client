@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import config from '../config/config';
+import config from "../config/config";
 import LabPlanList from "../components/layout/labPage/LabPlanList";
 import Card from "../components/ui/Card";
 
@@ -21,7 +21,7 @@ export default function LabPlansPage() {
     fetch(config.apiBaseUrl + "/lab/getLabPlans", {
       method: "GET",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
     })
       .then((response) => {

@@ -14,7 +14,6 @@ export default function SpecSection() {
   const [batterySpecs, setBatterySpecs] = useState<GroupedBatterySpecs[]>([]);
 
   useEffect(() => {
-
     setIsSpecSectionLoading(true);
     fetch(config.apiBaseUrl + "/spec/getAllBatterySpecs", {
       method: "GET",
@@ -31,28 +30,31 @@ export default function SpecSection() {
       })
       .then((data) => {
         if (data && Array.isArray(data.batterySpecsList)) {
-          const groupedData = data.batterySpecsList.reduce((acc, batterySpec) => {
-            // Group by tierLabel
-            const name = "Tier " + batterySpec.tierLabel;
-            if (!acc[name]) {
-              acc[name] = [];
-            }
-            acc[name].push({
-              id: String(acc[name].length),
-              name: batterySpec.batteryName,
-              size: 1,
-              ...batterySpec,
-            });
-            return acc;
-          }, {});
-    
+          const groupedData = data.batterySpecsList.reduce(
+            (acc, batterySpec) => {
+              // Group by tierLabel
+              const name = "Tier " + batterySpec.tierLabel;
+              if (!acc[name]) {
+                acc[name] = [];
+              }
+              acc[name].push({
+                id: String(acc[name].length),
+                name: batterySpec.batteryName,
+                size: 1,
+                ...batterySpec,
+              });
+              return acc;
+            },
+            {},
+          );
+
           // Transform the grouped data into the desired format
           const transformedData = Object.keys(groupedData).map((name) => ({
             name,
             size: groupedData[name].length,
             children: groupedData[name],
           }));
-    
+
           setBatterySpecs(transformedData);
         } else {
           throw new Error("Data format is incorrect");

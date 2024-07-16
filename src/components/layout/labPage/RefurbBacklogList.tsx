@@ -1,7 +1,6 @@
 import RefurbBacklogItem from "./RefurbBacklogItem";
 import classes from "../TableList.module.css";
 
-
 interface RefurbBacklogListProps {
   refurbBacklog: any;
 }
@@ -28,16 +27,10 @@ export default function RefurbBacklogList(props: RefurbBacklogListProps) {
             <td>
               <b>End</b>
             </td>
-            <td
-              title="Resolder"
-              className={classes.annotatedHeaderColumn}
-            >
+            <td title="Resolder" className={classes.annotatedHeaderColumn}>
               <b>RS</b>
             </td>
-            <td
-              title="Repack"
-              className={classes.annotatedHeaderColumn}
-            >
+            <td title="Repack" className={classes.annotatedHeaderColumn}>
               <b>RP</b>
             </td>
             <td

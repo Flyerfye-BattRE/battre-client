@@ -3,7 +3,7 @@ import classes from "../TableList.module.css";
 import { StorageStats } from "../../../pages/StoragePage";
 
 type StorageStatsListProp = {
-  storageStats: StorageStats[]
+  storageStats: StorageStats[];
 };
 
 export default function StorageStatsList(props: StorageStatsListProp) {

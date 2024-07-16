@@ -3,7 +3,7 @@ import classes from "../TableList.module.css";
 import { RefurbStation } from "../../../pages/LabStationsPage";
 
 type RefurbStationListProp = {
-  refurbStns: RefurbStation[]
+  refurbStns: RefurbStation[];
 };
 
 export default function RefurbStnList(props: RefurbStationListProp) {
@@ -22,13 +22,22 @@ export default function RefurbStnList(props: RefurbStationListProp) {
             <td>
               <b>Status</b>
             </td>
-            <td title="Last Active Date" className={classes.annotatedHeaderColumn}>
+            <td
+              title="Last Active Date"
+              className={classes.annotatedHeaderColumn}
+            >
               <b>Active</b>
             </td>
-            <td title="Previous Calibration Date" className={classes.annotatedHeaderColumn}>
+            <td
+              title="Previous Calibration Date"
+              className={classes.annotatedHeaderColumn}
+            >
               <b>Prev Cal</b>
             </td>
-            <td title="Next Calibration Date" className={classes.annotatedHeaderColumn}>
+            <td
+              title="Next Calibration Date"
+              className={classes.annotatedHeaderColumn}
+            >
               <b>Next Cal</b>
             </td>
           </tr>

@@ -21,7 +21,7 @@ interface BarChartProps {
 
 export default function BarChartVis(props: BarChartProps) {
   return (
-    <div style={{ width: "100%", height: "100%",  minHeight: "200px"}}>
+    <div style={{ width: "100%", height: "100%", minHeight: "200px" }}>
       <ResponsiveContainer>
         <BarChart
           width={600}
@@ -36,12 +36,12 @@ export default function BarChartVis(props: BarChartProps) {
         >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey={props.xAxisLabelKey}>
-            <Label value={props.xAxisTitleKey} dy={15}/>
+            <Label value={props.xAxisTitleKey} dy={15} />
           </XAxis>
           <YAxis />
           <Tooltip />
-          <Bar dataKey={props.bottomBarKey} stackId="a"  fill="#249c09" />
-          <Bar dataKey={props.topBarKey} stackId="a"  fill="#52d5de" />
+          <Bar dataKey={props.bottomBarKey} stackId="a" fill="#249c09" />
+          <Bar dataKey={props.topBarKey} stackId="a" fill="#52d5de" />
         </BarChart>
       </ResponsiveContainer>
     </div>

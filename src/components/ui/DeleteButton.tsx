@@ -7,7 +7,10 @@ interface DeleteButtonProps {
 
 export default function DeleteButton(props: DeleteButtonProps) {
   return (
-    <div className={classes.deleteButton} title={props.titleText} onClick={props.onClick}>
-    </div>
+    <div
+      className={classes.deleteButton}
+      title={props.titleText}
+      onClick={props.onClick}
+    ></div>
   );
 }

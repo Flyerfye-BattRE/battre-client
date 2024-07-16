@@ -7,7 +7,10 @@ interface UpdateButtonProps {
 
 export default function UpdateButton(props: UpdateButtonProps) {
   return (
-    <div className={classes.updateButton} title={props.titleText} onClick={props.onClick}>
-    </div>
+    <div
+      className={classes.updateButton}
+      title={props.titleText}
+      onClick={props.onClick}
+    ></div>
   );
 }

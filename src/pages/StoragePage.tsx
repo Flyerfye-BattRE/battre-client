@@ -20,7 +20,7 @@ export default function StoragePage() {
     fetch(config.apiBaseUrl + "/storage/getStorageStats", {
       method: "GET",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
     })
       .then((response) => {
@@ -37,9 +37,9 @@ export default function StoragePage() {
               id: String(index),
               batteryTierId: storageStat.batteryTierId,
               usedStorage: storageStat.usedStorage,
-              availStorage: storageStat.capacity-storageStat.usedStorage,
+              availStorage: storageStat.capacity - storageStat.usedStorage,
               capacity: storageStat.capacity,
-            })
+            }),
           );
 
           setStorageStats(tierStats);
@@ -64,8 +64,8 @@ export default function StoragePage() {
   }
 
   return (
-      <Card>
-        <StorageStatsList storageStats={storageStats} />
-      </Card>
+    <Card>
+      <StorageStatsList storageStats={storageStats} />
+    </Card>
   );
 }

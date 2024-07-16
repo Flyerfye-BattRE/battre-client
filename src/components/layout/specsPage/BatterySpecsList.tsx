@@ -3,7 +3,7 @@ import classes from "../TableList.module.css";
 import { BatterySpecs } from "../../../pages/SpecsPage";
 
 type BatterySpecsListProp = {
-  batterySpecs: BatterySpecs[]
+  batterySpecs: BatterySpecs[];
 };
 
 export default function BatterySpecsList(props: BatterySpecsListProp) {
@@ -22,13 +22,13 @@ export default function BatterySpecsList(props: BatterySpecsListProp) {
             <td>
               <b>Tier</b>
             </td>
-            <td
-              title="Manufacturer"
-              className={classes.annotatedHeaderColumn}
-            >
+            <td title="Manufacturer" className={classes.annotatedHeaderColumn}>
               <b>Mfc</b>
             </td>
-            <td title="Terminal Layout ID" className={classes.annotatedHeaderColumn}>
+            <td
+              title="Terminal Layout ID"
+              className={classes.annotatedHeaderColumn}
+            >
               <b>TL</b>
             </td>
             <td>
@@ -37,10 +37,16 @@ export default function BatterySpecsList(props: BatterySpecsListProp) {
             <td>
               <b>Safety</b>
             </td>
-            <td title="Min/Max Voltage Range (V)" className={classes.annotatedHeaderColumn}>
+            <td
+              title="Min/Max Voltage Range (V)"
+              className={classes.annotatedHeaderColumn}
+            >
               <b>V Range</b>
             </td>
-            <td title="Min/Max Current Range (mA)" className={classes.annotatedHeaderColumn}>
+            <td
+              title="Min/Max Current Range (mA)"
+              className={classes.annotatedHeaderColumn}
+            >
               <b>Cur Range</b>
             </td>
           </tr>

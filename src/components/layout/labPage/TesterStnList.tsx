@@ -3,7 +3,7 @@ import classes from "../TableList.module.css";
 import { TesterStation } from "../../../pages/LabStationsPage";
 
 type TesterStnListProp = {
-  testerStns: TesterStation[]
+  testerStns: TesterStation[];
 };
 
 export default function TesterStnList(props: TesterStnListProp) {
@@ -16,19 +16,31 @@ export default function TesterStnList(props: TesterStnListProp) {
             <td>
               <b>#</b>
             </td>
-            <td title="Terminal Layout ID" className={classes.annotatedHeaderColumn}>
+            <td
+              title="Terminal Layout ID"
+              className={classes.annotatedHeaderColumn}
+            >
               <b>TL</b>
             </td>
             <td>
               <b>Status</b>
             </td>
-            <td title="Last Active Date" className={classes.annotatedHeaderColumn}>
+            <td
+              title="Last Active Date"
+              className={classes.annotatedHeaderColumn}
+            >
               <b>Active</b>
             </td>
-            <td title="Previous Calibration Date" className={classes.annotatedHeaderColumn}>
+            <td
+              title="Previous Calibration Date"
+              className={classes.annotatedHeaderColumn}
+            >
               <b>Prev Cal</b>
             </td>
-            <td title="Next Calibration Date" className={classes.annotatedHeaderColumn}>
+            <td
+              title="Next Calibration Date"
+              className={classes.annotatedHeaderColumn}
+            >
               <b>Next Cal</b>
             </td>
           </tr>

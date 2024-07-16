@@ -12,8 +12,11 @@ type CustomerListProp = {
 export default function CustomerList(props: CustomerListProp) {
   return (
     <section className={classes.section}>
-      <h2 className={classes.tableTitle}>Customer List <CreateButton  titleText="Add Customer" onClick={props.addCustomerFn} /></h2>
-      
+      <h2 className={classes.tableTitle}>
+        Customer List{" "}
+        <CreateButton titleText="Add Customer" onClick={props.addCustomerFn} />
+      </h2>
+
       <table className={classes.dataTable}>
         <thead>
           <tr>

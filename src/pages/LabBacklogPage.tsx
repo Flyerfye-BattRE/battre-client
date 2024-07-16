@@ -42,7 +42,7 @@ export default function LabBacklogPage() {
     fetch(config.apiBaseUrl + "/lab/getTesterBacklog", {
       method: "GET",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
     })
       .then((response) => {
@@ -58,7 +58,7 @@ export default function LabBacklogPage() {
             (testerEntry, index) => ({
               id: String(index),
               ...testerEntry,
-            })
+            }),
           );
 
           setTesterBacklog(testerBacklog);
@@ -77,7 +77,7 @@ export default function LabBacklogPage() {
     fetch(config.apiBaseUrl + "/lab/getRefurbPlans", {
       method: "GET",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
     })
       .then((response) => {
@@ -93,7 +93,7 @@ export default function LabBacklogPage() {
             (refurbEntry, index) => ({
               id: String(index),
               ...refurbEntry,
-            })
+            }),
           );
 
           setRefurbBacklog(refurbBacklog);

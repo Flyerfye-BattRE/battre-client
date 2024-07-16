@@ -25,7 +25,7 @@ export default function BatteryInvItem(props: BatteryInv) {
       .catch((error) => {
         console.error(
           "Error destroying battery [" + props.batteryId + "]:",
-          error
+          error,
         );
       });
   };
@@ -39,7 +39,7 @@ export default function BatteryInvItem(props: BatteryInv) {
       <td>{props.optionalOutputOrderId}</td>
       <td>{props.optionalHoldId}</td>
       <td>
-        <DeleteButton  titleText="Destroy Battery" onClick={destroyBatteryFn} />
+        <DeleteButton titleText="Destroy Battery" onClick={destroyBatteryFn} />
       </td>
     </tr>
   );

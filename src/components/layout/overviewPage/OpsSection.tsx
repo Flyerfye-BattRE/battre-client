@@ -14,30 +14,30 @@ export default function OpsSection() {
   >([]);
   const [customerCount, setCustomerCount] = useState<number>(0);
   const colorMap = {
-    "UNKNOWN": "#FF4081",   // Pink
-    "INTAKE": "#00C49F",   // Green
-    "REJECTED": "#C2185B",  // Crimson
-    "TESTING": "#303F9F",    // Indigo
-    "REFURB": "#0088FE",    // Blue
-    "STORAGE": "#FF8042",   // Orange      
-    "HOLD": "#FFBB28",      // Yellow      
-    "SHIPPING": "#7B1FA2",  // Purple      
-    "RECEIVED": "#00796B",  // Teal
-    "DESTROYED": "#D32F2F", // Red
-    "LOST": "#4A4A4A",      // Deep Orange      
-  };  
+    UNKNOWN: "#FF4081", // Pink
+    INTAKE: "#00C49F", // Green
+    REJECTED: "#C2185B", // Crimson
+    TESTING: "#303F9F", // Indigo
+    REFURB: "#0088FE", // Blue
+    STORAGE: "#FF8042", // Orange
+    HOLD: "#FFBB28", // Yellow
+    SHIPPING: "#7B1FA2", // Purple
+    RECEIVED: "#00796B", // Teal
+    DESTROYED: "#D32F2F", // Red
+    LOST: "#4A4A4A", // Deep Orange
+  };
 
   const legendData = [
-    { value: 'UNKNOWN', color: colorMap['UNKNOWN'] },
-    { value: 'INTAKE', color: colorMap['INTAKE'] },
-    { value: 'REJECTED', color: colorMap['REJECTED'] },
-    { value: 'REFURB', color: colorMap['REFURB'] },
-    { value: 'STORAGE', color: colorMap['STORAGE'] },
-    { value: 'HOLD', color: colorMap['HOLD'] },
-    { value: 'SHIPPING', color: colorMap['SHIPPING'] },
-    { value: 'RECEIVED', color: colorMap['RECEIVED'] },
-    { value: 'DESTROYED', color: colorMap['DESTROYED'] },
-    { value: 'LOST', color: colorMap['LOST'] },
+    { value: "UNKNOWN", color: colorMap["UNKNOWN"] },
+    { value: "INTAKE", color: colorMap["INTAKE"] },
+    { value: "REJECTED", color: colorMap["REJECTED"] },
+    { value: "REFURB", color: colorMap["REFURB"] },
+    { value: "STORAGE", color: colorMap["STORAGE"] },
+    { value: "HOLD", color: colorMap["HOLD"] },
+    { value: "SHIPPING", color: colorMap["SHIPPING"] },
+    { value: "RECEIVED", color: colorMap["RECEIVED"] },
+    { value: "DESTROYED", color: colorMap["DESTROYED"] },
+    { value: "LOST", color: colorMap["LOST"] },
   ];
 
   useEffect(() => {
@@ -84,7 +84,12 @@ export default function OpsSection() {
       {isOpsSectionLoading ? (
         <p>Loading...</p>
       ) : (
-        <PieChartVis chartTitle="Battery Statuses" data={batteryStatusCounts} colorMap={colorMap} orderedLegend={legendData}/>
+        <PieChartVis
+          chartTitle="Battery Statuses"
+          data={batteryStatusCounts}
+          colorMap={colorMap}
+          orderedLegend={legendData}
+        />
       )}
     </div>
   );

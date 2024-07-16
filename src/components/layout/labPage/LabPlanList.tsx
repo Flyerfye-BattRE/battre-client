@@ -21,10 +21,16 @@ export default function LabPlanList(props: LabPlanListProps) {
             <td>
               <b>Status</b>
             </td>
-            <td title="Test Record ID" className={classes.annotatedHeaderColumn}>
+            <td
+              title="Test Record ID"
+              className={classes.annotatedHeaderColumn}
+            >
               <b>TID</b>
             </td>
-            <td title="Refurb Record ID" className={classes.annotatedHeaderColumn}>
+            <td
+              title="Refurb Record ID"
+              className={classes.annotatedHeaderColumn}
+            >
               <b>RID</b>
             </td>
           </tr>

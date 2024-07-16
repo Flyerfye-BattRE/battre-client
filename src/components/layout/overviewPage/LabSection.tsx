@@ -11,31 +11,31 @@ export default function LabSection() {
   const [isLabSectionLoading, setIsLabSectionLoading] = useState<boolean>(true);
   const [labStatusCounts, setLabStatusCounts] = useState<LabStatusCounts[]>([]);
   const colorMap = {
-    "UNKNOWN": "#FF4081", // Pink
+    UNKNOWN: "#FF4081", // Pink
     "TESTER-NEW": "#303F9F", // Indigo
-    "TESTER-RETRY": "#FF8042",  // Orange  
-    "TESTER-FAILED": "#0088FE",  // Blue
+    "TESTER-RETRY": "#FF8042", // Orange
+    "TESTER-FAILED": "#0088FE", // Blue
     "REFURB-NEW": "#00796B", // Teal
-    "REFURB-CONT": "#7B1FA2", // Purple 
-    "REFURB-RETRY": "#FFBB28", // Yellow      
-    "REFURB-FAILED": "#C2185B",  // Crimson
-    "PASS": "#00C49F",// Green
-    "DESTROYED": "#D32F2F", // Red
-    "LOST": "#4A4A4A", // Deep Orange 
+    "REFURB-CONT": "#7B1FA2", // Purple
+    "REFURB-RETRY": "#FFBB28", // Yellow
+    "REFURB-FAILED": "#C2185B", // Crimson
+    PASS: "#00C49F", // Green
+    DESTROYED: "#D32F2F", // Red
+    LOST: "#4A4A4A", // Deep Orange
   };
 
   const legendData = [
-    { value: 'UNKNOWN', color: colorMap['UNKNOWN'] },
-    { value: 'TESTER-NEW', color: colorMap['TESTER-NEW'] },
-    { value: 'TESTER-RETRY', color: colorMap['TESTER-RETRY'] },
-    { value: 'TESTER-FAILED', color: colorMap['TESTER-FAILED'] },
-    { value: 'REFURB-NEW', color: colorMap['REFURB-NEW'] },
-    { value: 'REFURB-CONT', color: colorMap['REFURB-CONT'] },
-    { value: 'REFURB-RETRY', color: colorMap['REFURB-RETRY'] },
-    { value: 'REFURB-FAILED', color: colorMap['REFURB-FAILED'] },
-    { value: 'PASS', color: colorMap['PASS'] },
-    { value: 'DESTROYED', color: colorMap['DESTROYED'] },
-    { value: 'LOST', color: colorMap['LOST'] },
+    { value: "UNKNOWN", color: colorMap["UNKNOWN"] },
+    { value: "TESTER-NEW", color: colorMap["TESTER-NEW"] },
+    { value: "TESTER-RETRY", color: colorMap["TESTER-RETRY"] },
+    { value: "TESTER-FAILED", color: colorMap["TESTER-FAILED"] },
+    { value: "REFURB-NEW", color: colorMap["REFURB-NEW"] },
+    { value: "REFURB-CONT", color: colorMap["REFURB-CONT"] },
+    { value: "REFURB-RETRY", color: colorMap["REFURB-RETRY"] },
+    { value: "REFURB-FAILED", color: colorMap["REFURB-FAILED"] },
+    { value: "PASS", color: colorMap["PASS"] },
+    { value: "DESTROYED", color: colorMap["DESTROYED"] },
+    { value: "LOST", color: colorMap["LOST"] },
   ];
 
   useEffect(() => {
@@ -90,7 +90,12 @@ export default function LabSection() {
       {isLabSectionLoading ? (
         <p>Loading...</p>
       ) : (
-        <PieChartVis chartTitle="Lab Statuses" data={labStatusCounts} colorMap={colorMap} orderedLegend={legendData}/>
+        <PieChartVis
+          chartTitle="Lab Statuses"
+          data={labStatusCounts}
+          colorMap={colorMap}
+          orderedLegend={legendData}
+        />
       )}
     </div>
   );

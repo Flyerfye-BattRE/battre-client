@@ -37,7 +37,7 @@ export default function LabStationsPage() {
     fetch(config.apiBaseUrl + "/lab/getTesterStnInfo", {
       method: "GET",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
     })
       .then((response) => {
@@ -53,7 +53,7 @@ export default function LabStationsPage() {
             (testerStn, index) => ({
               id: String(index),
               ...testerStn,
-            })
+            }),
           );
 
           setTesterStns(testerStns);
@@ -72,7 +72,7 @@ export default function LabStationsPage() {
     fetch(config.apiBaseUrl + "/lab/getRefurbStnInfo", {
       method: "GET",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
     })
       .then((response) => {
@@ -88,7 +88,7 @@ export default function LabStationsPage() {
             (refurbStn, index) => ({
               id: String(index),
               ...refurbStn,
-            })
+            }),
           );
 
           setRefurbStns(refurbStns);
@@ -115,10 +115,10 @@ export default function LabStationsPage() {
   return (
     <section>
       <Card>
-      <TesterStnList testerStns={testerStns} />
+        <TesterStnList testerStns={testerStns} />
       </Card>
       <Card>
-      <RefurbStnList refurbStns={refurbStns} />
+        <RefurbStnList refurbStns={refurbStns} />
       </Card>
     </section>
   );

@@ -26,7 +26,7 @@ export default function RefurbBacklogItem(props: RefurbBacklog) {
         newPriority +
         "] to [" +
         priority +
-        "]"
+        "]",
     );
     fetch(config.apiBaseUrl + "/lab/changeBatteryRefurbPriority", {
       method: "POST",
@@ -43,11 +43,11 @@ export default function RefurbBacklogItem(props: RefurbBacklog) {
               props.batteryId +
               " to [" +
               newPriority +
-              "]"
+              "]",
           );
         } else {
           console.error(
-            "Failed to change refurb priority for battery " + props.batteryId
+            "Failed to change refurb priority for battery " + props.batteryId,
           );
         }
       })
@@ -56,13 +56,13 @@ export default function RefurbBacklogItem(props: RefurbBacklog) {
           "Error changing refurb priority for battery " +
             props.batteryId +
             ": ",
-          error
+          error,
         );
       });
   };
 
   const [fRefurbPlanLongStartDate, fRefurbPlanShortStartDate] = formatDate(
-    props.refurbPlanStartDate
+    props.refurbPlanStartDate,
   );
   const [fRefurbPlanLongEndDate, fRefurbPlanShortEndDate] =
     props.refurbPlanEndDate
@@ -84,17 +84,13 @@ export default function RefurbBacklogItem(props: RefurbBacklog) {
       <td className={classes.annotatedRowCell} title={fRefurbPlanLongEndDate}>
         {fRefurbPlanShortEndDate}
       </td>
+      <td>{props.resolder && (props.optionalResolderRecordId || "TBD")}</td>
+      <td>{props.repack && (props.optionalRepackRecordId || "TBD")}</td>
       <td>
-        {(props.resolder && (props.optionalResolderRecordId || "TBD"))}
+        {props.processorSwap && (props.optionalProcessorSwapRecordId || "TBD")}
       </td>
       <td>
-        {(props.repack && (props.optionalRepackRecordId || "TBD"))}
-      </td>
-      <td>
-        {(props.processorSwap && (props.optionalProcessorSwapRecordId || "TBD"))}
-      </td>
-      <td>
-        {(props.capacitorSwap && (props.optionalCapacitorSwapRecordId || "TBD"))}
+        {props.capacitorSwap && (props.optionalCapacitorSwapRecordId || "TBD")}
       </td>
       <td className={classes.priorityColumn}>
         {(!fRefurbPlanShortEndDate && (

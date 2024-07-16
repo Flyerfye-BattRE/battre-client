@@ -26,7 +26,7 @@ export default function TesterBacklogItem(props: TesterBacklog) {
         newPriority +
         "] to [" +
         priority +
-        "]"
+        "]",
     );
     fetch(config.apiBaseUrl + "/lab/changeBatteryTesterPriority", {
       method: "POST",
@@ -43,11 +43,11 @@ export default function TesterBacklogItem(props: TesterBacklog) {
               props.batteryId +
               " to [" +
               newPriority +
-              "]"
+              "]",
           );
         } else {
           console.error(
-            "Failed to change tester priority for battery " + props.batteryId
+            "Failed to change tester priority for battery " + props.batteryId,
           );
         }
       })
@@ -56,7 +56,7 @@ export default function TesterBacklogItem(props: TesterBacklog) {
           "Error changing tester priority for battery " +
             props.batteryId +
             ": ",
-          error
+          error,
         );
       });
   };
@@ -81,7 +81,10 @@ export default function TesterBacklogItem(props: TesterBacklog) {
       >
         {fTesterBacklogShortStartDate}
       </td>
-      <td className={classes.annotatedRowCell} title={fTesterBacklogLongEndDate}>
+      <td
+        className={classes.annotatedRowCell}
+        title={fTesterBacklogLongEndDate}
+      >
         {fTesterBacklogShortEndDate}
       </td>
       <td className={classes.priorityColumn}>

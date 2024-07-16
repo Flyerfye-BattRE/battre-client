@@ -7,7 +7,10 @@ interface CreateButtonProps {
 
 export default function CreateButton(props: CreateButtonProps) {
   return (
-    <div className={classes.updateButton} title={props.titleText} onClick={props.onClick}>
-    </div>
+    <div
+      className={classes.updateButton}
+      title={props.titleText}
+      onClick={props.onClick}
+    ></div>
   );
 }

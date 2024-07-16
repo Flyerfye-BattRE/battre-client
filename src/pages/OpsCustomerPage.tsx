@@ -53,12 +53,12 @@ export default function OpsCustomerPage() {
       .then((response) => {
         if (response.ok) {
           console.log(
-            "Finished adding customer " + data.firstName + " " + data.lastName
+            "Finished adding customer " + data.firstName + " " + data.lastName,
           );
           triggerUpdate();
         } else {
           console.log(
-            "Failed to add customer " + data.firstName + " " + data.lastName
+            "Failed to add customer " + data.firstName + " " + data.lastName,
           );
         }
       })
@@ -69,7 +69,7 @@ export default function OpsCustomerPage() {
             " " +
             data.lastName +
             ": ",
-          error
+          error,
         );
       });
   };
@@ -79,7 +79,7 @@ export default function OpsCustomerPage() {
     fetch(config.apiBaseUrl + "/ops/getCustomerList", {
       method: "GET",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
     })
       .then((response) => {
@@ -95,7 +95,7 @@ export default function OpsCustomerPage() {
             (customer, index) => ({
               id: String(index),
               ...customer,
-            })
+            }),
           );
 
           setCustomerList(customerList);
@@ -122,7 +122,11 @@ export default function OpsCustomerPage() {
   return (
     <section>
       <Card>
-        <CustomerList customerList={customerList} addCustomerFn={() => setIsAddCustomerDialogOpen(true)} updateFn={triggerUpdate} />
+        <CustomerList
+          customerList={customerList}
+          addCustomerFn={() => setIsAddCustomerDialogOpen(true)}
+          updateFn={triggerUpdate}
+        />
       </Card>
       {isAddCustomerDialogOpen && (
         <CustomerForm

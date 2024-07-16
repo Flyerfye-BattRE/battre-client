@@ -9,7 +9,7 @@ export default function TriageSection() {
     fetch(config.apiBaseUrl + "/triage", {
       method: "GET",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
     })
       .then((response) => {
@@ -33,7 +33,7 @@ export default function TriageSection() {
 
     console.log("Finished receiving battery order");
   };
-  
+
   return (
     <div style={{ width: "100%", height: "100%" }}>
       <button type="button" onClick={recvOrderFn}>

@@ -3,7 +3,7 @@ import classes from "../TableList.module.css";
 import { TesterBacklog } from "../../../pages/LabBacklogPage";
 
 type TesterBacklogListProp = {
-  testerBacklog: TesterBacklog[]
+  testerBacklog: TesterBacklog[];
 };
 
 export default function TesterBacklogList(props: TesterBacklogListProp) {
@@ -28,7 +28,10 @@ export default function TesterBacklogList(props: TesterBacklogListProp) {
             <td>
               <b>End</b>
             </td>
-            <td title="Lower priority #'s run before higher #'s" className={classes.annotatedHeaderColumn}>
+            <td
+              title="Lower priority #'s run before higher #'s"
+              className={classes.annotatedHeaderColumn}
+            >
               <b>Priority</b>
             </td>
           </tr>

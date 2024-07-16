@@ -37,7 +37,9 @@ export default function TreemapChartVis(props: TreemapChartProps) {
             </div>
           ) : (
             <div className={classes.treemapCustomTooltip}>
-              <p><b>{`${name}`}</b></p>
+              <p>
+                <b>{`${name}`}</b>
+              </p>
               <p>{`${composition} battery from ${mfc}`}</p>
               <p>{`${minVoltage} - ${maxVoltage} V`}</p>
               <p>{`${minCurrent} - ${maxCurrent} mA`}</p>

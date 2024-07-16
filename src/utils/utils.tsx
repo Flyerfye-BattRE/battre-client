@@ -2,7 +2,7 @@
 // Long date format: YYYY-MM-DD HH:MM:SS
 // Short date format: M/D H:MM
 
-export  const formatDate = (dateString) => {
+export const formatDate = (dateString) => {
   const date = new Date(dateString);
   const year = date.getFullYear();
   const month = date.getMonth() + 1;

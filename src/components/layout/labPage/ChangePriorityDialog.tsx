@@ -43,8 +43,12 @@ export default function ChangePriorityDialog(props: ChangePriorityDialogProps) {
         </div>
         <br />
         <div className={classes.buttonGroup}>
-          <button className={classes.applyButton} onClick={handleApply}>Apply</button>
-          <button className={classes.cancelButton} onClick={props.onCancel}>Cancel</button>
+          <button className={classes.applyButton} onClick={handleApply}>
+            Apply
+          </button>
+          <button className={classes.cancelButton} onClick={props.onCancel}>
+            Cancel
+          </button>
         </div>
       </div>
     </div>

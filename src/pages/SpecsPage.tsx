@@ -29,7 +29,7 @@ export default function SpecsPage() {
     fetch(config.apiBaseUrl + "/spec/getAllBatterySpecs", {
       method: "GET",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
     })
       .then((response) => {
@@ -47,7 +47,7 @@ export default function SpecsPage() {
               size: 1,
               group: batterySpec.tierLabel,
               ...batterySpec,
-            })
+            }),
           );
 
           setBatterySpecs(batterySpecs);

@@ -28,7 +28,7 @@ export default function OpsBatteryPage() {
     fetch(config.apiBaseUrl + "/ops/getBatteryInventory", {
       method: "GET",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
     })
       .then((response) => {
@@ -44,7 +44,7 @@ export default function OpsBatteryPage() {
             (battery, index) => ({
               id: String(index),
               ...battery,
-            })
+            }),
           );
 
           setBatteryInv(batteryInv);

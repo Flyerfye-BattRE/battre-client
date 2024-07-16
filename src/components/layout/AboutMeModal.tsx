@@ -13,14 +13,14 @@ export default function AboutMeModal(props: AboutMeModalProps) {
         I&apos;m{" "}
         <a href="https://www.linkedin.com/in/issabeekun/">Issa Beekun</a>, a
         software engineer based in Seattle. This site is a portfolio project
-        that simulates high level operations of a battery recycling company.
-        My full-stack implementation consists of a front-end client that is
-        written in TypeScript while the back-end is written in Java and PostGreSQL.<br />
-
-        The FE uses NodeJS and React to dynamically interact with the BE server.<br />
-
-        The BE consists of Dockerized Spring micro-service architecture that  
-        communicates between services using gRPC with a publicly facing REST 
+        that simulates high level operations of a battery recycling company. My
+        full-stack implementation consists of a front-end client that is written
+        in TypeScript while the back-end is written in Java and PostGreSQL.
+        <br />
+        The FE uses NodeJS and React to dynamically interact with the BE server.
+        <br />
+        The BE consists of Dockerized Spring micro-service architecture that
+        communicates between services using gRPC with a publicly facing REST
         gateway available to handle requests from the client. <br />
         <br />
         <br />
@@ -29,8 +29,8 @@ export default function AboutMeModal(props: AboutMeModalProps) {
         between governments and the people they serve, Promise Pay.
         <br />
         <br />
-        After spending time traveling internationally, I am excited to return 
-        to the tech industry and make meaningful contributions as I continue to
+        After spending time traveling internationally, I am excited to return to
+        the tech industry and make meaningful contributions as I continue to
         grow my skills and expand my interests.
       </p>
 

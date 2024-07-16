@@ -3,7 +3,7 @@ import classes from "../TableList.module.css";
 import { BatteryInv } from "../../../pages/OpsBatteryPage";
 
 type BatteryInvProp = {
-  batteryInv: BatteryInv[]
+  batteryInv: BatteryInv[];
   updateFn: () => void;
 };
 
