@@ -6,12 +6,9 @@ import config from "../config/config";
 
 export interface TesterStation {
   id: string;
-  // testerStnId: number;
   testerStnId: string;
-  // terminalLayoutId: number;
   terminalLayoutId: string;
   inUse: boolean;
-  // optionalActiveBatteryId: number;
   optionalActiveBatteryId: string;
   lastActiveDate: string;
   lastCalibrationDate: string;
@@ -20,11 +17,9 @@ export interface TesterStation {
 
 export interface RefurbStation {
   id: string;
-  // refurbStnId: number;
   refurbStnId: string;
   refurbStationClass: string;
   inUse: boolean;
-  // optionalActiveBatteryId: number;
   optionalActiveBatteryId: string;
   lastActiveDate: string;
   lastCalibrationDate: string;
@@ -42,7 +37,7 @@ export default function LabStationsPage() {
     fetch(config.apiBaseUrl + "/lab/getTesterStnInfo", {
       method: "GET",
       headers: {
-        // 'Content-Type': 'application/json'
+        'Content-Type': 'application/json'
       },
     })
       .then((response) => {
@@ -77,7 +72,7 @@ export default function LabStationsPage() {
     fetch(config.apiBaseUrl + "/lab/getRefurbStnInfo", {
       method: "GET",
       headers: {
-        // 'Content-Type': 'application/json'
+        'Content-Type': 'application/json'
       },
     })
       .then((response) => {

@@ -5,13 +5,10 @@ import config from "../config/config";
 
 export interface BatteryInv {
   id: string;
-  // batteryId: number;
   batteryId: string;
   batteryStatus: string;
   batteryTypeId: number;
   intakeOrderId: number;
-  // optionalHoldId: number;
-  // optionalOutputOrderId: number;
   optionalHoldId: string;
   optionalOutputOrderId: string;
   updateFn: () => void;
@@ -26,14 +23,12 @@ export default function OpsBatteryPage() {
     setUpdate(!update);
   };
 
-  // Runs the code in this section only when the values in the 2nd argument array change--currently will only run once
-  // https://youtu.be/Dorf8i6lCuk?t=11464
   useEffect(() => {
     setIsLoading(true);
     fetch(config.apiBaseUrl + "/ops/getBatteryInventory", {
       method: "GET",
       headers: {
-        // 'Content-Type': 'application/json'
+        'Content-Type': 'application/json'
       },
     })
       .then((response) => {
@@ -58,7 +53,6 @@ export default function OpsBatteryPage() {
         }
 
         setIsLoading(false);
-        // setOpsPlans(data);
       })
       .catch((error) => {
         console.error("Fetch error:", error);

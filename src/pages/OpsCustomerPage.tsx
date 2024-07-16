@@ -7,7 +7,6 @@ import config from "../config/config";
 
 export interface CustomerInfo {
   id: string;
-  // customerId: number;
   customerId: string;
   lastName: string;
   firstName: string;
@@ -75,14 +74,12 @@ export default function OpsCustomerPage() {
       });
   };
 
-  // Runs the code in this section only when the values in the 2nd argument array change--currently will only run once
-  // https://youtu.be/Dorf8i6lCuk?t=11464
   useEffect(() => {
     setIsLoading(true);
     fetch(config.apiBaseUrl + "/ops/getCustomerList", {
       method: "GET",
       headers: {
-        // 'Content-Type': 'application/json'
+        'Content-Type': 'application/json'
       },
     })
       .then((response) => {
@@ -107,7 +104,6 @@ export default function OpsCustomerPage() {
         }
 
         setIsLoading(false);
-        // setOpsPlans(data);
       })
       .catch((error) => {
         console.error("Fetch error:", error);
@@ -125,9 +121,6 @@ export default function OpsCustomerPage() {
 
   return (
     <section>
-      <button onClick={() => setIsAddCustomerDialogOpen(true)}>
-        Add Customer
-      </button>
       <Card>
         <CustomerList customerList={customerList} addCustomerFn={() => setIsAddCustomerDialogOpen(true)} updateFn={triggerUpdate} />
       </Card>

@@ -49,20 +49,6 @@ export default function TesterStnList(props: TesterStnListProp) {
           ))}
         </tbody>
       </table>
-      {/* <ul>
-        {props.testerStns.map((stn) => (
-          <TesterStnItem
-            key={stn.id}
-            testerStnId={stn.testerStnId || ""}
-            terminalLayoutId={stn.terminalLayoutId || ""}
-            inUse={stn.inUse}
-            optionalActiveBatteryId={stn.optionalActiveBatteryId || ""}
-            lastActiveDate={stn.lastActiveDate || ""}
-            lastCalibrationDate={stn.lastCalibrationDate || ""}
-            nextCalibrationDate={stn.nextCalibrationDate || ""}
-          />
-        ))}
-      </ul> */}
     </section>
   );
 }

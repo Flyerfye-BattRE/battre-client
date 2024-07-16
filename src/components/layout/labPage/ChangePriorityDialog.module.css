@@ -21,8 +21,6 @@
 .inputGroup {
   display: flex;
   align-items: center;
-  /* margin: 10px 0; */
-  /* padding: 10px;  */
 }
 
 .inputGroup button {
@@ -34,8 +32,7 @@
 .inputGroup input {
   width: 60px;
   text-align: center;
-  /* box-sizing: border-box; */
-  padding: 2px; /* Adjust as needed */
+  padding: 2px; 
 }
 
 .buttonGroup {
@@ -45,14 +42,14 @@
 }
 
 .applyButton, .cancelButton {
-  padding: 10px 20px; /* Adjust padding for buttons */
-  background-color: #007bff; /* Example background color */
-  color: white; /* Example text color */
+  padding: 10px 20px; 
+  background-color: #007bff; 
+  color: white;
   border: none;
   cursor: pointer;
   border-radius: 4px;
 }
 
 .applyButton:hover, .cancelButton:hover {
-  background-color: #0056b3; /* Example hover background color */
+  background-color: #0056b3; 
 }

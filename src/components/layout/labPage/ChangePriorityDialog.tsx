@@ -50,5 +50,3 @@ export default function ChangePriorityDialog(props: ChangePriorityDialogProps) {
     </div>
   );
 }
-
-// export default CustomDialog;

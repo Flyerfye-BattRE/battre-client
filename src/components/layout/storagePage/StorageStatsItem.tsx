@@ -10,15 +10,5 @@ export default function StorageStatsItem(props: StorageStats) {
       <td>{props.capacity}</td>
       <td>{percentage}%</td>
     </tr>
-    // <li>
-    //   <div>
-    //     <h3>
-    //       Battery Tier {props.batteryTierId} [{percentage}%]:
-    //     </h3>
-    //     <h4>
-    //       &gt;&gt; {props.availStorage} / {props.capacity}
-    //     </h4>
-    //   </div>
-    // </li>
   );
 }

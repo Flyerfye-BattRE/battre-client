@@ -16,14 +16,12 @@ export default function LabPlansPage() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [labPlans, setLabPlans] = useState<LabPlan[]>([]);
 
-  // Runs the code in this section only when the values in the 2nd argument array change--currently will only run once
-  // https://youtu.be/Dorf8i6lCuk?t=11464
   useEffect(() => {
     setIsLoading(true);
     fetch(config.apiBaseUrl + "/lab/getLabPlans", {
       method: "GET",
       headers: {
-        // 'Content-Type': 'application/json'
+        'Content-Type': 'application/json'
       },
     })
       .then((response) => {
@@ -46,7 +44,6 @@ export default function LabPlansPage() {
         }
 
         setIsLoading(false);
-        // setLabPlans(data);
       })
       .catch((error) => {
         console.error("Fetch error:", error);

@@ -5,10 +5,38 @@
   transform: translate(-50%, -50%);
   background-color: white;
   border: 1px solid #ccc;
+  border-radius: 10px;
   padding: 20px;
   z-index: 3;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
   text-align: center;
+}
+
+.form {
+  display: grid;
+  gap: 10px;
+}
+
+.control {
+  display: grid; 
+  grid-template-columns: auto ;
+  align-items: center; 
+}
+
+.control label {
+  text-align: right;
+  padding-right: 10px;
+}
+
+.control input {
+  width: 100%;
+}
+
+.actions {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
 }
 
 .dialogContent {

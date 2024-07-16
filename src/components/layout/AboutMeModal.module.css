@@ -1,11 +1,11 @@
 .aboutMeModal {
   position: fixed; /* Fixed position to stay centered even when scrolling */
-  top: 50%; /* Place the top edge of the modal at 50% from the top */
-  left: 50%; /* Place the left edge of the modal at 50% from the left */
+  top: 50%; /* Place top edge 50% from top */
+  left: 50%; /* 50% from the left */
   transform: translate(
     -50%,
     -50%
-  ); /* Center the modal both horizontally and vertically */
+  ); /* Center horizontally and vertically */
   background-color: white;
   padding: 1.5rem;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
@@ -16,8 +16,8 @@
 }
 
 .h1 {
-  margin-top: 1vh; /* Adjust the margin to reduce the space after the h1 tag*/
-  margin-bottom: 2vh; /* Adjust the margin to reduce the space after the h1 tag*/
+  margin-top: 1vh; 
+  margin-bottom: 2vh; 
 }
 
 .p {

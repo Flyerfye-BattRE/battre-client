@@ -6,9 +6,6 @@ import config from "../config/config";
 
 export interface TesterBacklog {
   id: string;
-  // testerBacklogId: number;
-  // batteryId: number;
-  // testerBacklogPriority: number;
   testerBacklogId: string;
   batteryId: string;
   testerBacklogPriority: number;
@@ -45,7 +42,7 @@ export default function LabBacklogPage() {
     fetch(config.apiBaseUrl + "/lab/getTesterBacklog", {
       method: "GET",
       headers: {
-        // 'Content-Type': 'application/json'
+        'Content-Type': 'application/json'
       },
     })
       .then((response) => {
@@ -80,7 +77,7 @@ export default function LabBacklogPage() {
     fetch(config.apiBaseUrl + "/lab/getRefurbPlans", {
       method: "GET",
       headers: {
-        // 'Content-Type': 'application/json'
+        'Content-Type': 'application/json'
       },
     })
       .then((response) => {

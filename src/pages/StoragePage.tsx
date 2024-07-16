@@ -15,14 +15,12 @@ export default function StoragePage() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [storageStats, setStorageStats] = useState<StorageStats[]>([]);
 
-  // Runs the code in this section only when the values in the 2nd argument array change--currently will only run once
-  // https://youtu.be/Dorf8i6lCuk?t=11464
   useEffect(() => {
     setIsLoading(true);
     fetch(config.apiBaseUrl + "/storage/getStorageStats", {
       method: "GET",
       headers: {
-        // 'Content-Type': 'application/json'
+        'Content-Type': 'application/json'
       },
     })
       .then((response) => {
@@ -35,10 +33,6 @@ export default function StoragePage() {
       .then((data) => {
         if (data && Array.isArray(data.tierStatsList)) {
           const tierStats: StorageStats[] = data.tierStatsList.map(
-            // (stat, index) => ({
-            //   id: String(index),
-            //   ...stat,
-            // })
             (storageStat, index) => ({
               id: String(index),
               batteryTierId: storageStat.batteryTierId,
@@ -54,7 +48,6 @@ export default function StoragePage() {
         }
 
         setIsLoading(false);
-        // setStoragePlans(data);
       })
       .catch((error) => {
         console.error("Fetch error:", error);

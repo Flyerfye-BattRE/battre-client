@@ -7,19 +7,13 @@ export interface BatterySpecs {
   id: string;
   size: number;
   group: string;
-  // batteryTypeId: number;
   batteryTypeId: string;
+  batteryName: string;
   mfc: string;
-  // terminalLayoutId: number;
-  // tierId: number;
   terminalLayoutId: string;
-  tierId: string;
+  tierLabel: string;
   composition: string;
   optionalSafetyInfo: string;
-  // optionalMinVoltage: number;
-  // optionalMaxVoltage: number;
-  // optionalMinCurrent: number;
-  // optionalMaxCurrent: number;
   optionalMinVoltage: string;
   optionalMaxVoltage: string;
   optionalMinCurrent: string;
@@ -30,14 +24,12 @@ export default function SpecsPage() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [batterySpecs, setBatterySpecs] = useState<BatterySpecs[]>([]);
 
-  // Runs the code in this section only when the values in the 2nd argument array change--currently will only run once
-  // https://youtu.be/Dorf8i6lCuk?t=11464
   useEffect(() => {
     setIsLoading(true);
     fetch(config.apiBaseUrl + "/spec/getAllBatterySpecs", {
       method: "GET",
       headers: {
-        // 'Content-Type': 'application/json'
+        'Content-Type': 'application/json'
       },
     })
       .then((response) => {
@@ -53,7 +45,7 @@ export default function SpecsPage() {
             (batterySpec, index) => ({
               id: String(index),
               size: 1,
-              group: batterySpec.tierId,
+              group: batterySpec.tierLabel,
               ...batterySpec,
             })
           );
@@ -64,7 +56,6 @@ export default function SpecsPage() {
         }
 
         setIsLoading(false);
-        // setSpecPlans(data);
       })
       .catch((error) => {
         console.error("Fetch error:", error);

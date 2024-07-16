@@ -110,48 +110,5 @@ export default function RefurbBacklogItem(props: RefurbBacklog) {
         )}
       </td>
     </tr>
-    // <li>
-    //   <div>
-    //     <h3>
-    //       Entry {props.refurbPlanId} [PRI-{priority}]: Battery {props.batteryId}
-    //     </h3>
-    //     <h4>
-    //       Status:{" "}
-    //       {(props.refurbPlanEndDate && "REFURBED") ||
-    //         (props.available && "QUEUED") ||
-    //         "IN PROG"}
-    //     </h4>
-    //     <h4>&gt;&gt; Start: {props.refurbPlanStartDate}</h4>
-    //     <h4>&gt;&gt; End: {props.refurbPlanEndDate}</h4>
-    //     {props.resolder && (
-    //       <h4>&gt;&gt; Resolder: {props.optionalResolderRecordId || "TBD"}</h4>
-    //     )}
-    //     {props.repack && (
-    //       <h4>&gt;&gt; Repack: {props.optionalRepackRecordId || "TBD"}</h4>
-    //     )}
-    //     {props.processorSwap && (
-    //       <h4>
-    //         &gt;&gt; Processor Swap:{" "}
-    //         {props.optionalProcessorSwapRecordId || "TBD"}
-    //       </h4>
-    //     )}
-    //     {props.capacitorSwap && (
-    //       <h4>
-    //         &gt;&gt; Capacitor Swap:{" "}
-    //         {props.optionalCapacitorSwapRecordId || "TBD"}
-    //       </h4>
-    //     )}
-    //     {!props.refurbPlanEndDate && (
-    //       <button onClick={() => setIsDialogOpen(true)}>Set Priority</button>
-    //     )}
-    //     {isDialogOpen && (
-    //       <ChangePriorityDialog
-    //         initialPriority={priority}
-    //         onApply={handleApply}
-    //         onCancel={handleCancel}
-    //       />
-    //     )}
-    //   </div>
-    // </li>
   );
 }

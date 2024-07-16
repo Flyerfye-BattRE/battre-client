@@ -1,6 +1,4 @@
-// ../../assets/images/battery_banner.png
 import classes from "./DeleteButton.module.css";
-// import deleteIcon from '../../assets/icons/redX.png';
 
 interface DeleteButtonProps {
   titleText: string;

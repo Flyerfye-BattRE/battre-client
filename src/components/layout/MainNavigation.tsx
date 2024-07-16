@@ -1,20 +1,14 @@
 import { Link } from "react-router-dom";
 
 import classes from "./MainNavigation.module.css";
-// import bannerImage from '../../assets/images/battery_banner.png';
 
 export default function MainNavigation() {
   return (
     <header className={classes.header}>
       <div className={classes.banner}></div>
-      {/* <div className={classes.logo}>RE</div> */}
       <nav className={classes.nav}>
         <ul>
-          {/* <li>
-          <div className={classes.banner}></div>
-          </li> */}
           <li className={classes.logo}>
-            {/* <div className={classes.logo}>RE</div> */}
             batte<b>RE</b>
           </li>
           <li>

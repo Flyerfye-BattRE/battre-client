@@ -17,6 +17,9 @@ export default function BatterySpecsList(props: BatterySpecsListProp) {
               <b>Type</b>
             </td>
             <td>
+              <b>Name</b>
+            </td>
+            <td>
               <b>Tier</b>
             </td>
             <td
@@ -50,9 +53,10 @@ export default function BatterySpecsList(props: BatterySpecsListProp) {
               size={spec.size}
               group={spec.group}
               batteryTypeId={spec.batteryTypeId || ""}
+              batteryName={spec.batteryName || ""}
               mfc={spec.mfc || ""}
               terminalLayoutId={spec.terminalLayoutId || ""}
-              tierId={spec.tierId || ""}
+              tierLabel={spec.tierLabel || ""}
               composition={spec.composition || ""}
               optionalSafetyInfo={spec.optionalSafetyInfo || ""}
               optionalMinVoltage={spec.optionalMinVoltage || ""}
@@ -63,23 +67,6 @@ export default function BatterySpecsList(props: BatterySpecsListProp) {
           ))}
         </tbody>
       </table>
-      {/* <ul>
-        {props.batterySpecs.map((spec) => (
-          <BatterySpecsItem
-            key={spec.id}
-            batteryTypeId={spec.batteryTypeId || ""}
-            mfc={spec.mfc || ""}
-            terminalLayoutId={spec.terminalLayoutId || ""}
-            tierId={spec.tierId || ""}
-            composition={spec.composition || ""}
-            safetyInfo={spec.optionalSafetyInfo || ""}
-            minVoltage={spec.optionalMinVoltage || ""}
-            maxVoltage={spec.optionalMaxVoltage || ""}
-            minCurrent={spec.optionalMinCurrent || ""}
-            maxCurrent={spec.optionalMaxCurrent || ""}
-          />
-        ))}
-      </ul> */}
     </section>
   );
 }

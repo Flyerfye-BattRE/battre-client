@@ -18,7 +18,6 @@ export default function CustomerForm(props: CustomerFormProps) {
   const loyaltyIdRef = useRef<HTMLInputElement>(null);
 
   function submitHandler(event) {
-    // prevent conventional form submission
     event.preventDefault();
 
     const enteredFirstName = firstNameRef.current?.value || "";
@@ -28,7 +27,7 @@ export default function CustomerForm(props: CustomerFormProps) {
     const enteredAddress = addressRef.current?.value || "";
     const enteredLoyaltyId = loyaltyIdRef.current?.value || "";
 
-    const customerData: CustomerData = {
+    const customerData = {
       lastName: enteredLastName,
       firstName: enteredFirstName,
       email: enteredEmail,
@@ -46,67 +45,73 @@ export default function CustomerForm(props: CustomerFormProps) {
 
   return (
     <div className={classes.customForm}>
-      <h2>Add a new Customer</h2>
+      <h2>Add Customer</h2>
       <form className={classes.form} onSubmit={submitHandler}>
         <div className={classes.control}>
-          <label htmlFor="firstName">First Name</label>
+          {/* <label htmlFor="firstName">First Name</label> */}
           <input
             type="text"
             required
             id="firstName"
             ref={firstNameRef}
             defaultValue={props.prevData?.firstName}
+            placeholder="First Name"
           />
         </div>
         <div className={classes.control}>
-          <label htmlFor="lastName">Last Name</label>
+          {/* <label htmlFor="lastName">Last Name</label> */}
           <input
             type="text"
             required
             id="lastName"
             ref={lastNameRef}
             defaultValue={props.prevData?.lastName}
+            placeholder="Last Name"
           />
         </div>
         <div className={classes.control}>
-          <label htmlFor="email">E-Mail</label>
+          {/* <label htmlFor="email">E-Mail</label> */}
           <input
-            type="text"
+            type="email"
             required
             id="email"
             ref={emailRef}
             defaultValue={props.prevData?.email}
+            placeholder="E-Mail"
           />
         </div>
         <div className={classes.control}>
-          <label htmlFor="phone">Phone</label>
+          {/* <label htmlFor="phone">Phone</label> */}
           <input
-            type="text"
+            type="tel"
             required
             id="phone"
             ref={phoneRef}
             defaultValue={props.prevData?.phone}
+            placeholder="Phone"
           />
         </div>
         <div className={classes.control}>
-          <label htmlFor="address">Address</label>
+          {/* <label htmlFor="address">Address</label> */}
           <input
             type="text"
             required
             id="address"
             ref={addressRef}
             defaultValue={props.prevData?.address}
+            placeholder="Address"
           />
         </div>
         {!props.newCustomer && (
           <div className={classes.control}>
-            <label htmlFor="loyaltyId">Loyalty Id</label>
+            {/* <label htmlFor="loyaltyId">Loyalty Id</label> */}
             <input
               type="text"
               required
               id="loyaltyId"
               ref={loyaltyIdRef}
               defaultValue={props.prevData?.loyaltyId}
+              placeholder="Loyalty Id"
             />
           </div>
         )}

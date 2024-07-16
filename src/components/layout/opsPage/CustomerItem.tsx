@@ -137,7 +137,7 @@ export default function CustomerItem(props: CustomerInfo) {
         {props.loyaltyId.substring(0, 8)}
       </td>
       <td className={classes.summaryColumn}>
-        <UpdateButton titleText="Update Customer" onClick={deleteCustomerFn} />
+        <UpdateButton titleText="Update Customer" onClick={() => setIsUpdateCustomerDialogOpen(true)} />
         {" "}
         <DeleteButton titleText="Delete Customer" onClick={deleteCustomerFn} />
       </td>
