@@ -9,7 +9,7 @@ export default function MainNavigation() {
       <nav className={classes.nav}>
         <ul>
           <li className={classes.logo}>
-            batte<b>RE</b>
+            Batte<b>RE</b>
           </li>
           <li>
             <Link to="/">Home</Link>

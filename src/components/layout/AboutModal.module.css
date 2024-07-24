@@ -1,4 +1,4 @@
-.aboutMeModal {
+.aboutModal {
   position: fixed; /* Fixed position to stay centered even when scrolling */
   top: 50%; /* Place top edge 50% from top */
   left: 50%; /* 50% from the left */
@@ -6,7 +6,7 @@
     -50%,
     -50%
   ); /* Center horizontally and vertically */
-  background-color: white;
+  background-color: #c7e9ff;
   padding: 1.5rem;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
   border-radius: 10px;

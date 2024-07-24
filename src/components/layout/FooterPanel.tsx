@@ -1,21 +1,21 @@
 import React, { useState } from "react";
 import classes from "./FooterPanel.module.css";
-import AboutMeModal from "./AboutMeModal";
+import AboutModal from "./AboutModal";
 
 export default function FooterPanel() {
-  const [aboutMeModalOpen, setAboutMeModalOpen] = useState(false);
+  const [aboutModalOpen, setAboutMeModalOpen] = useState(false);
 
-  const openAboutMe = () => {
+  const openAbout = () => {
     setAboutMeModalOpen(true);
   };
 
-  const closeAboutMe = () => {
+  const closeAbout = () => {
     setAboutMeModalOpen(false);
   };
 
   return (
     <div className={classes.divContainer}>
-      {aboutMeModalOpen && <AboutMeModal closeFn={closeAboutMe} />}
+      {aboutModalOpen && <AboutModal closeFn={closeAbout} />}
       <main className={classes.footerPanel}>
         <table style={{ width: "100%", borderCollapse: "collapse" }}>
           <tbody>
@@ -25,10 +25,10 @@ export default function FooterPanel() {
                 Using a disguised button here instead */}
                 <button
                   className={classes.buttonLink}
-                  data-testid="application-grid-about-me-button"
-                  onClick={openAboutMe}
+                  data-testid="application-grid-about-button"
+                  onClick={openAbout}
                 >
-                  About Me
+                  About
                 </button>
               </td>
               <td>
